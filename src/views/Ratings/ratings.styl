@@ -1,0 +1,146 @@
+.ratings
+  font-size: 0
+  height 100%
+  overflow hidden
+  .head
+    padding: .48rem 0
+    border-bottom: .426667rem solid #f3f5f7
+    .left-wrapper
+      float left
+      width 3.666667rem
+      text-align: center
+      border-right: .013333rem solid rgb(147,153,159)
+      .scores
+        font-size: .64rem
+        color: rgb(255,153,0)
+        line-height: .746667rem
+        margin-bottom: .16rem
+      .text
+        font-size: .32rem
+        color: rgb(7,17,27)
+        line-height: .48rem
+        margin-bottom: .213333rem
+      .desc
+        font-size: .266667rem
+        color: rgb(147,153,159)
+        line-height: .266667rem
+        margin-bottom: .16rem
+    .right-wrapper
+      overflow hidden
+      padding 0 .64rem
+      .rating
+        margin-bottom: .213333rem
+        .text
+          display inline-block
+          margin-right: .32rem
+          font-size: .32rem
+          color: rgb(7,17,27)
+          line-height: .48rem
+        .star
+          display inline-block
+          margin-right: .32rem
+        .number
+          display inline-block
+          font-size: .32rem
+          color: rgb(255,153,0)
+          line-height: .48rem
+        .time
+          font-size: .32rem
+          color: rgb(147,153,159)
+          line-height: .48rem
+      .rating:last-child
+        margin-bottom: 0
+  .choose
+    padding: 0 .48rem
+    border-bottom: .013334rem solid rgb(147,153,159)
+    .first
+      padding-top: .48rem
+      padding-bottom: .48rem
+      border-bottom: .013333rem solid rgb(147,153,159)
+      .rating-tittle
+        display inline-block
+        vertical-align: top
+        margin-right: .213333rem
+        padding .213333rem .32rem
+        font-size: 0
+        .rating-desc
+          display inline-block
+          font-size: .32rem
+          line-height: .426667rem
+        .number
+          display inline-block
+          font-size: .213333rem
+        &.all
+          color: rgb(255,255,255)
+          background-color: rgb(0,160,220)
+        &.nice
+          color: rgb(77,85,73)
+          background-color: rgba(0,160,220, 0.2) 
+        &.bad
+          color: rgb(77,85,73)
+          background-color: rgba(77,58,39,0.2)
+    .second
+      padding: .32rem 
+      color: rgb(147,153,159)
+      font-size: .32rem
+      .icon
+        display inline-block
+        margin-right: .106667rem
+        vertical-align: middle
+        font-size: .64rem
+        &.high-light
+          color: rgb(0,160,220)
+  .rating-wrapper
+    .rating:last-child
+      border: 0
+    .rating
+      padding .48rem
+      overflow hidden
+      border-bottom: .013333rem solid #f3f5f7
+      .img-wrapper
+        float left
+        margin-right: .32rem
+        .img
+          width: .746667rem
+          height .746667rem
+          border-radius: 50%
+      .right-wrapper
+        overflow hidden
+        .user-wrapper
+          font-size: .266667rem
+          margin-bottom: .106667rem
+          .username
+            color: rgb(7,17,27)
+            line-height: .32rem
+          .time
+            display inline-block
+            float: right 
+        .score
+          font-size: .266667rem
+          font-weight: 200
+          color: rgb(147,153,159)
+          line-height: .32rem
+          .stars
+            display inline-block
+            margin-right: .16rem
+        .desc
+          font-size: .32rem
+          color: rgb(7,17,27)
+          line-height: .48rem
+        .mark
+          .icon
+            display inline-block
+            margin-right: .106667rem
+            font-size: .32rem
+            line-height: .64rem
+            &.up
+              color: rgb(0,160,220)
+            &.down
+              color: rgb(147,153,159)
+          .recommend
+            border: .013333rem solid  rgba(7,17,27,0.1)
+            border-radius: .026667rem
+            font-size: .213334rem
+            color: rgb(147,153,159)
+            line-height: .426667rem
+            padding: 0 .16rem

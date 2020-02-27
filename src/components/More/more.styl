@@ -1,0 +1,74 @@
+@import '../../common/stylus/mixin.styl'
+.more
+  position: absolute
+  z-index: 999
+  top: 0
+  bottom 0
+  left 0
+  right 0
+  background-color: rgba(7,17,27,0.8)
+  padding-top: 1.6rem
+  padding-bottom: .853333rem
+  padding-left: .96rem
+  padding-right: .96rem
+  color: rgb(255,255,255)
+  .title
+    width: 100%
+    text-align: center
+    font-size: .426667rem
+    font-weight: 700
+    line-height: .426667rem
+    margin-bottom: .426667rem
+  .stars
+    height .64rem
+    line-height: .64rem
+    margin-bottom: .746667rem
+    text-align: center
+    vertical-align: top
+  .info, .notice
+    position relative
+    .title
+      position relative
+      .border
+        position: absolute
+        top: 50%
+        width: 2.986667rem
+        border .026667rem solid rgba(255,255,255,0.2)
+      .right
+        right 0
+      .text
+        display inline-block
+        padding: 0 .32rem
+        font-size: .4rem
+        font-weight: 700
+    .contains
+      padding: 0 .32rem
+      font-size: .32rem
+  .info
+    .contains
+      .info
+        margin-bottom: .32rem
+        .icon
+          width: .426667rem
+          height .426667rem
+          margin-right: .16rem
+        .text
+          display inline-block
+          vertical-align: middle
+      .info:last-child
+        margin-bottom: .746667rem
+  .notice
+    .contains
+      .text
+        font-size: .32rem
+        font-weight: 200
+        line-height: .64rem
+  .close
+    position: absolute
+    bottom .853333rem
+    left 50%
+    text-align: center
+    .icon
+      display inline-block
+      font-size: .853333rem
+      transform: translateX(-50%)

@@ -1,0 +1,118 @@
+@import '../../common/stylus/mixin.styl'
+headerPadding = .64rem
+headerPaddingBottom = .48rem
+
+imgSize = 1.706667rem
+imgMarginRight = .426667rem
+
+topFontSize = .426667rem
+topLineHeight = .48rem
+topMarginBottom = .213333rem
+
+moreRight = .32rem
+moreFontSize = .266667rem
+
+centerFontSize = .32rem
+centerMarginBottom = .266667rem
+
+bottomFontSize = .266667rem
+
+footerLineHeight = .746667rem
+footerPadding = .32rem
+.introduce
+  position relative
+  background-color: rgba(7,17,27,0.5)
+  color: rgb(255, 255, 255)
+  .header
+    position relative
+    height imgSize
+    padding-top: headerPadding
+    padding-left: headerPadding
+    padding-bottom: headerPaddingBottom
+    .avatar-wrapper
+      position relative
+      display inline-block
+      margin-right: imgMarginRight
+      height imgSize
+      .avatar
+        position relative
+        width: imgSize
+        height imgSize
+    .right
+      display inline-block
+      vertical-align top
+      .top
+        font-size: topFontSize
+        font-weight: 700
+        line-height: topLineHeight
+        margin-bottom: topMarginBottom
+        .img
+          display inline-block
+          width: .8rem
+          height .48rem
+          vertical-align: bottom
+          margin-right: .16rem
+          bg-image('./brand')
+          background-size: 100% 100%
+      .center
+        font-size: centerFontSize
+        line-height: centerFontSize
+        font-weight: 200
+        margin-bottom: centerMarginBottom
+      .bottom
+        font-size: bottomFontSize
+        line-height: centerFontSize
+        font-weight: 200
+        .icon
+          width: .32rem
+          height .32rem
+          margin-right: .106667rem
+    .more
+      position: absolute
+      right moreRight
+      bottom: headerPaddingBottom
+      padding .186667rem .186667rem
+      border-radius: .32rem
+      font-size: moreFontSize
+      font-weight: 200
+      line-height: centerFontSize
+      background-color: rgba(7,17,27,0.2)
+      .text
+        display inline-block
+        margin-right: .053333rem
+      .icon
+        display inline-block
+        margin-top: .026667rem
+        vertical-align: bottom 
+  .footer
+    background-color: rgba(7,17,27,0.2)
+    padding-left: footerPadding
+    padding-right: footerPadding
+    height footerLineHeight
+    font-weight: 200
+    font-size: bottomFontSize
+    line-height: footerLineHeight
+    overflow hidden
+    white-space: nowrap
+    text-overflow: ellipsis
+    .bulletin
+      display inline-block
+      float left
+      width: .586667rem
+      height .32rem
+      margin-top: .186667rem
+      margin-right: .106667rem
+      background-size: 100% 100%
+      bg-image('./bulletin')
+    .icon
+      float right
+  .bg-img
+    position: absolute
+    top: 0
+    bottom 0
+    left 0
+    right 0
+    z-index: -1
+    .img
+      width: 100%
+      height 100%

@@ -1,0 +1,38 @@
+@import '../../common/stylus/mixin.styl'
+.goods
+  width: 100%
+  height 100%
+  .tittle:last-child
+    border: 0
+  .tittle
+    display flex
+    justify-items: center
+    height 1.44rem
+    padding: 0 .32rem
+    font-size: .32rem
+    font-weight: 200
+    line-height: .373333rem
+    border-bottom: .013334rem solid rgba(7,17,27,0.1)
+    background-color: #f3f5f7
+    .text
+      margin: auto
+      .decrease, .discount, .special, .invoice, .guarantee
+        width: .32rem
+        height .32rem
+        display inline-block
+        margin-right: .106667rem
+        background-size: 100% 100%
+        vertical-align: top
+      .decrease
+        bg-image('./decrease_4')
+      .discount
+        bg-image('./discount_4')
+      .special
+        bg-image('./special_4')
+      .invoice
+        bg-image('./invoice_4')
+      .guarantee
+        bg-image('./guarantee_4')
+  .highlight
+    background-color: white
+    font-weight: 700

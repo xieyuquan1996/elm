@@ -1,0 +1,36 @@
+navBackgroundColor = rgb(255,255,255)
+containBackgroundColor = rgb(240,20,20)
+textColor = rgb(77,85,96)
+
+paddingLeft = 20px
+paddingTop = 10px
+fontSize = .373333rem
+borderRadius = 5px
+
+nav
+    position relative
+    overflow: auto
+    background-color: navBackgroundColor
+    color: textColor
+    .contains
+        font-size: fontSize
+        display inline-block
+        cursor pointer
+        position relative
+        padding-left: paddingLeft
+        padding-right: paddingLeft
+        vertical-align: middle
+        z-index 1
+        text-decoration: none
+    .bold
+      font-weight: 700
+    .animation
+        position: absolute
+        height .066667rem
+        left: 0
+        bottom: 0
+        z-index: 0
+        border-radius: borderRadius
+        transform: scaleX(0.5)
+        background-color: containBackgroundColor
+        transition: all .5s ease 0s
