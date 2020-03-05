@@ -1,15 +1,13 @@
 <template>
   <div class="app">
     <router-view class="contain" />
-    <ShopCart class="foot"></ShopCart>
   </div>
 </template>
 
 <script>
-import ShopCart from "@/components/ShopCart/ShopCart.vue";
 export default {
-  components: {
-    ShopCart
+  created(){
+    
   }
 };
 </script>

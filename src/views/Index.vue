@@ -9,6 +9,7 @@
     <transition name="fade">
       <More v-if="show" :seller="seller" @close="closeMore"></More>
     </transition>
+    <ShopCart class="foot"></ShopCart>
   </div>
 </template>
 
@@ -16,6 +17,7 @@
 import Introduce from '@/components/introduce/Introduce.vue'
 import Details from '@/components/details/Details.vue'
 import More from '@/components/More/More.vue'
+import ShopCart from "@/components/ShopCart/ShopCart.vue";
 export default {
   data(){
     return {
@@ -28,14 +30,13 @@ export default {
     }
   },
   components: {
-    Introduce, Details, More
+    Introduce, Details, More,ShopCart
   },
   created(){
     const that = this
-    new Promise((resolve) => {
-      resolve(that.$API.getSeller())
-    }).then((data) => {
-      that.$store.commit('setSeller', data)
+    const shopId = 26
+    that.$API.getSeller(shopId).then((data) => {
+      that.$store.commit('setSeller', data.data)
     })
   },
   methods: {
@@ -63,4 +64,11 @@ export default {
     transition: opacity .8s
   .fade-enter, .fade-leave-to 
     opacity: 0
+  .foot
+    position: fixed
+    width: 100%
+    z-index: 10
+    height 1.28rem
+    bottom: 0
+    background-color: #141d27
 </style>

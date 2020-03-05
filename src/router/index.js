@@ -5,10 +5,6 @@ Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
-        redirect: 'index'
-    },
-    {
-        path: '/index',
         name: 'index',
         component: () =>
             import ('../views/Index.vue'),
@@ -51,7 +47,7 @@ const routes = [{
 
 const router = new VueRouter({
     mode: 'history',
-    base: process.env.BASE_URL,
+    base: process.env.BASE_UR,
     routes
 })
 

@@ -26,8 +26,12 @@ export default {
     };
   },
   created() {
-    this.goods = this.$API.getGoods();
-    this.seller = this.$API.getSeller();
+    const that =this
+    const shopId = 26
+    this.$API.getGoods(shopId).then(data => {
+      that.goods = data.data
+    })
+    this.seller = this.$store.state.seller;
   },
   computed: {
     imgClass() {

@@ -93,7 +93,11 @@ export default {
     };
   },
   created() {
-    this.ratings = this.$API.getRatings();
+    const that = this
+    const shopId = 26
+    this.$API.getRatings(shopId).then(data => {
+      that.ratings = data.data
+    });
   },
   components: {
     Scroll,
