@@ -28,24 +28,34 @@ export default {
   data() {
     return {
       currentIndex: 0,
-      topList: [],
-      scrollY: 0,
       jumpIndex: 0
     };
   },
   computed: {
     imgClass() {
       return ["decrease", "discount", "special", "invoice", "guarantee"];
+    },
+    topList(){
+      let res = []
+      if(this.$refs.good){
+        this.$refs.good.map(item => {
+          res.push(-item.offsetTop);
+        });
+      }
+      this.$refs.good.map(item => {
+        res.push(-item.offsetTop);
+      });
+      return res
+    },
+    scrollY(){
+      let res = 0;
+      if(this.$refs.scroll){
+        res = this.$refs.scroll.scroll.wrapper.clientHeight
+      }
+      return res
     }
   },
   mounted() {
-    const that = this;
-    this.$nextTick(() => {
-      that.scrollY = this.$refs.scroll.scroll.wrapper.clientHeight;
-    });
-    this.$refs.good.map(item => {
-      that.topList.push(-item.offsetTop);
-    });
   },
   methods: {
     highlight(index) {

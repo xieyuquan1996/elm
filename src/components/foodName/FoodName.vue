@@ -45,20 +45,24 @@ export default {
   props: ['goods'],
   data() {
     return {
-      sellGoogs: this.$store.state.sellFood,
-      tittleTopList: []
+      sellGoogs: this.$store.state.sellFood
     };
   },
   computed: {
     imgClass() {
       return ["decrease", "discount", "special", "invoice", "guarantee"];
+    },
+    tittleTopList(){
+      let res = []
+      if (this.$refs.tittle){
+        this.$refs.tittle.map(item => {
+          res.push(-item.offsetTop)
+        })
+      }
+      return res
     }
   },
   mounted() {
-    let that = this
-    this.$refs.tittle.map(item => {
-      that.tittleTopList.push(-item.offsetTop)
-    })
   },
   methods: {
     add(name, price) {
