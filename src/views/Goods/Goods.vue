@@ -20,22 +20,27 @@ export default {
   },
   data() {
     return {
-      goods: [],
-      seller: {},
       foodList: {}
     };
   },
   created() {
-    const that =this
-    const shopId = 26
-    this.$API.getGoods(shopId).then(data => {
-      that.goods = data.data
-    })
-    this.seller = this.$store.state.seller;
+    if(this.$store.state.goods.length==0){
+      const that =this
+      const shopId = 26
+      this.$API.getGoods(shopId).then(data => {
+        that.$store.commit("setGoods", data.data)
+      })
+    }
   },
   computed: {
     imgClass() {
       return ["decrease", "discount", "special", "invoice", "guarantee"];
+    },
+    goods(){
+      return this.$store.state.goods
+    },
+    seller(){
+      return this.$store.state.seller;
     }
   },
   methods: {

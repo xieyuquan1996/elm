@@ -88,22 +88,26 @@ export default {
     return {
       showContent: false,
       datefmt: "YYYY-mm-dd HH:MM",
-      ratings: [],
       isAll: -1
     };
   },
   created() {
-    const that = this
-    const shopId = 26
-    this.$API.getRatings(shopId).then(data => {
-      that.ratings = data.data
-    });
+    if(this.$store.state.ratings.length==0){
+      const that = this
+      const shopId = 26
+      this.$API.getRatings(shopId).then(data => {
+        that.$store.commit("setRatings", data.data)
+      });
+    }
   },
   components: {
     Scroll,
     Star
   },
   computed: {
+    ratings(){
+      return this.$store.state.ratings
+    },
     seller(){
       return this.$store.state.seller
     },

@@ -9,9 +9,17 @@ export default new Vuex.Store({
         food: {},
         sellFood: {},
         isFavorite: false,
-        loading: 0
+        loading: 0,
+        goods: [],
+        ratings: []
     },
     mutations: {
+        setRatings(state, val) {
+            state.ratings = val
+        },
+        setGoods(state, val) {
+            state.goods = val
+        },
         setLoading(state, val) {
             state.loading += val
         },
