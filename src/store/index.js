@@ -8,9 +8,13 @@ export default new Vuex.Store({
         seller: {},
         food: {},
         sellFood: {},
-        isFavorite: false
+        isFavorite: false,
+        loading: 0
     },
     mutations: {
+        setLoading(state, val) {
+            state.loading += val
+        },
         setIsFavorite(state, val) {
             state.isFavorite = val
         },
