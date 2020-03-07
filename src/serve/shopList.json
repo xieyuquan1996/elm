@@ -1,0 +1,851 @@
+[
+    {
+        "mtWmPoiId": "1070594814157891",
+        "shopName": "吉野家(学院路店)",
+        "wmPoiScore": 43,
+        "monthSalesTip": "月售3244",
+        "picUrl": "http://p0.meituan.net/xianfu/bac24cb8948358e9f2ef85e55b445aca157012.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "40分钟",
+        "deliveryType": 0,
+        "minPriceTip": "起送 ¥0",
+        "shippingFeeTip": "配送 ¥8",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "874m",
+        "averagePriceTip": "人均 ¥42",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满50减10;满99减20",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品4.71折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区学院路甲38号东升乡新技术产业楼一层",
+        "shipping_time": "07:30-22:30"
+    },
+    {
+        "mtWmPoiId": "986125692305686",
+        "shopName": "肯德基宅急送（花园北路店）",
+        "wmPoiScore": 49,
+        "monthSalesTip": "月售918",
+        "picUrl": "http://p0.meituan.net/xianfu/993803e48d0c83a05e6db8e1eaf6fd6318441.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "30分钟",
+        "deliveryType": 0,
+        "minPriceTip": "起送 ¥0",
+        "shippingFeeTip": "配送 ¥9",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "854m",
+        "averagePriceTip": "人均 ¥45",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满69减10;满99减30;满129减35",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品5.17折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区学院路甲38号一层",
+        "shipping_time": "07:00-21:29"
+    },
+    {
+        "mtWmPoiId": "867039134135756",
+        "shopName": "麦当劳麦乐送（北京花园路北路店）",
+        "wmPoiScore": 49,
+        "monthSalesTip": "月售4882",
+        "picUrl": "http://p1.meituan.net/xianfu/aa86bc1b9a218ea5e094b861c03b59b94873.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "30分钟",
+        "deliveryType": 0,
+        "minPriceTip": "起送 ¥0",
+        "shippingFeeTip": "配送 ¥9",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "849m",
+        "averagePriceTip": "人均 ¥42",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满49减9;满79减20;满99减30;满119减35",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品4折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区学院路甲38号",
+        "shipping_time": "00:00-04:45,05:15-10:15,10:30-23:59"
+    },
+    {
+        "mtWmPoiId": "1054368427708557",
+        "shopName": "海盗虾饭·小龙虾饭（知春路店）",
+        "wmPoiScore": 49,
+        "monthSalesTip": "月售5555",
+        "picUrl": "http://p1.meituan.net/waimaipoi/b82d029aa4c59729fee4f5acb022f0d1116002.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "30分钟",
+        "deliveryType": 1,
+        "minPriceTip": "起送 ¥20",
+        "shippingFeeTip": "配送 ¥5",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "878m",
+        "averagePriceTip": "人均 ¥37",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满20减9;满53减15;满85减20",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品2.5折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "领6元券",
+                "iconUrl": "http://p1.meituan.net/activityconfig/3fc360f1c726e7148380f4c77fa303fd1475.png",
+                "promotionType": 2,
+                "activityId": 103
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "知春路29号7-8号楼一层",
+        "shipping_time": "10:00-21:30"
+    },
+    {
+        "mtWmPoiId": "870595367041043",
+        "shopName": "西部马华牛肉面（学院路餐厅）",
+        "wmPoiScore": 43,
+        "monthSalesTip": "月售4977",
+        "picUrl": "http://p0.meituan.net/business/6bccf937adb8f09b9241c790516c0121438363.png",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "30分钟",
+        "deliveryType": 1,
+        "minPriceTip": "起送 ¥20",
+        "shippingFeeTip": "配送 ¥5",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "1.8km",
+        "averagePriceTip": "人均 ¥34",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满35减6;满55减15;满80减24",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品2折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区成府路20-2号(地质大学东侧)",
+        "shipping_time": "00:00-23:59"
+    },
+    {
+        "mtWmPoiId": "859565891019007",
+        "shopName": "嘉和一品粥(知春路)",
+        "wmPoiScore": 48,
+        "monthSalesTip": "月售5777",
+        "picUrl": "http://p1.meituan.net/waimaipoi/f58d91778b0af0e8998dd60e57843cf141791.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "30分钟",
+        "deliveryType": 1,
+        "minPriceTip": "起送 ¥20",
+        "shippingFeeTip": "配送 ¥5",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "899m",
+        "averagePriceTip": "人均 ¥25",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满39减17;满59减21",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品2.61折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区知春路大运村29号9号楼一层大厦底商",
+        "shipping_time": "07:00-21:30"
+    },
+    {
+        "mtWmPoiId": "1078454604325438",
+        "shopName": "付小姐在成都（杏坛路店）",
+        "wmPoiScore": 47,
+        "monthSalesTip": "月售3414",
+        "picUrl": "http://p0.meituan.net/waimaipoi/c22fd57e5922f0bcbbe568f8edd24335426718.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "42分钟",
+        "deliveryType": 0,
+        "minPriceTip": "起送 ¥20",
+        "shippingFeeTip": "配送 ¥9",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "2.8km",
+        "averagePriceTip": "人均 ¥42",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "折扣商品6.55折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            }
+        ],
+        "address": "北三环中路40号51号楼1层104",
+        "shipping_time": "11:00-22:00"
+    },
+    {
+        "mtWmPoiId": "908726086693103",
+        "shopName": "酥元冒菜（北师大店）",
+        "wmPoiScore": 48,
+        "monthSalesTip": "月售418",
+        "picUrl": "http://p0.meituan.net/waimaipoi/7fbd668c1ecc787fb1ceb85c943a140965542.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "36分钟",
+        "deliveryType": 0,
+        "minPriceTip": "起送 ¥20",
+        "shippingFeeTip": "配送 ¥4",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "3.3km",
+        "averagePriceTip": "人均 ¥28",
+        "discounts2": [
+            {
+                "info": "满38减15;满50减20;满70减25;满90减30",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品6.15折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            }
+        ],
+        "address": "北京市海淀区北太平庄123中学北侧房",
+        "shipping_time": "09:50-21:30"
+    },
+    {
+        "mtWmPoiId": "1004198914703337",
+        "shopName": "九本居酒屋（学院路店）",
+        "wmPoiScore": 50,
+        "monthSalesTip": "月售244",
+        "picUrl": "http://p0.meituan.net/business/8ec217b4012b64e76148f7fee3c1c7d5839951.png",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "30分钟",
+        "deliveryType": 1,
+        "minPriceTip": "起送 ¥25",
+        "shippingFeeTip": "配送 ¥5",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "1.9km",
+        "averagePriceTip": "",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满50减9;满80减16",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品0.82折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            }
+        ],
+        "address": "学院路街道成府路20-2号地下一层",
+        "shipping_time": "10:00-20:30"
+    },
+    {
+        "mtWmPoiId": "1024041663644023",
+        "shopName": "伊喜饺子",
+        "wmPoiScore": 47,
+        "monthSalesTip": "月售6420",
+        "picUrl": "http://p1.meituan.net/waimaipoi/ec4c1d14b37a43a985fef741e70ac9b561854.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "34分钟",
+        "deliveryType": 0,
+        "minPriceTip": "起送 ¥0",
+        "shippingFeeTip": "配送 ¥3",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "2.5km",
+        "averagePriceTip": "人均 ¥30",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满40减10;满60减20;满110减40",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品8.2折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区学院路30号科技大学东门配套楼",
+        "shipping_time": "10:00-21:50"
+    },
+    {
+        "mtWmPoiId": "933997674242165",
+        "shopName": "永和大王（知春店BJ038）",
+        "wmPoiScore": 44,
+        "monthSalesTip": "月售2297",
+        "picUrl": "http://p1.meituan.net/waimaipoi/ac177d11f33cfcd0c887f89bb28123ab25226.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "30分钟",
+        "deliveryType": 1,
+        "minPriceTip": "起送 ¥20",
+        "shippingFeeTip": "配送 ¥5",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "892m",
+        "averagePriceTip": "人均 ¥28",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满35减10;满60减24",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品5折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "实际支付20元返5元商家代金券",
+                "iconUrl": "http://p0.meituan.net/xianfu/652eea4034250563fe11b02e3219ba8d981.png",
+                "promotionType": 2,
+                "activityId": 100
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区知春路29号10-2-105",
+        "shipping_time": "06:00-20:00"
+    },
+    {
+        "mtWmPoiId": "1036797716516173",
+        "shopName": "蜜逃•轻食Bowl（世宁大厦店）",
+        "wmPoiScore": 43,
+        "monthSalesTip": "月售499",
+        "picUrl": "http://p0.meituan.net/business/4e809520778e7081a4ea897251a05225365256.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "30分钟",
+        "deliveryType": 1,
+        "minPriceTip": "起送 ¥20",
+        "shippingFeeTip": "配送 ¥5",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "832m",
+        "averagePriceTip": "人均 ¥44",
+        "discounts2": [
+            {
+                "info": "满30减2;满70减8;满100减12;满200减20",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品7.8折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区学院路35号世宁大厦一层112号",
+        "shipping_time": "10:20-20:00"
+    },
+    {
+        "mtWmPoiId": "1124548193320544",
+        "shopName": "比格比萨(比格花园路店)",
+        "wmPoiScore": 48,
+        "monthSalesTip": "月售1564",
+        "picUrl": "http://p0.meituan.net/waimaipoi/0a64b01bcb54a84c108bd6f0e7dfb2af89247.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "30分钟",
+        "deliveryType": 1,
+        "minPriceTip": "起送 ¥20",
+        "shippingFeeTip": "配送 ¥4",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "872m",
+        "averagePriceTip": "人均 ¥32",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满58减24;满98减45",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品1.11折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "实际支付40元返4元商家代金券",
+                "iconUrl": "http://p0.meituan.net/xianfu/652eea4034250563fe11b02e3219ba8d981.png",
+                "promotionType": 2,
+                "activityId": 100
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区学院路甲38号长城电脑大厦2层",
+        "shipping_time": "09:00-20:00"
+    },
+    {
+        "mtWmPoiId": "1124161646286013",
+        "shopName": "必胜客宅急送（花园路餐厅）",
+        "wmPoiScore": 48,
+        "monthSalesTip": "月售3556",
+        "picUrl": "http://p1.meituan.net/xianfu/95608b68ffb39943dbe10ac8c5b9aacd15834.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "40分钟",
+        "deliveryType": 0,
+        "minPriceTip": "起送 ¥0",
+        "shippingFeeTip": "配送 ¥5",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "2.3km",
+        "averagePriceTip": "人均 ¥44",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满80减25;满110减40;满150减55",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品5折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区花园路甲2号院4号楼1层105",
+        "shipping_time": "10:00-22:00"
+    },
+    {
+        "mtWmPoiId": "1115563121767489",
+        "shopName": "京味斋(花园路店)",
+        "wmPoiScore": 48,
+        "monthSalesTip": "月售5328",
+        "picUrl": "http://p1.meituan.net/waimaipoi/cac241f0571e321ee80bcd9d4fc07a381118298.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "32分钟",
+        "deliveryType": 1,
+        "minPriceTip": "起送 ¥20",
+        "shippingFeeTip": "配送 ¥5",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "1.5km",
+        "averagePriceTip": "人均 ¥36",
+        "discounts2": [
+            {
+                "info": "满45减10;满70减25;满110减35;满150减50",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品0.63折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "实际支付50元返3元商家代金券",
+                "iconUrl": "http://p0.meituan.net/xianfu/652eea4034250563fe11b02e3219ba8d981.png",
+                "promotionType": 2,
+                "activityId": 100
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "花园北路44号贯通大厦",
+        "shipping_time": "10:00-21:30"
+    },
+    {
+        "mtWmPoiId": "858075537393955",
+        "shopName": "华莱士(五道口店)",
+        "wmPoiScore": 47,
+        "monthSalesTip": "月售4933",
+        "picUrl": "http://p0.meituan.net/business/ee9c2b6e481ba2c581d236c5999fbf45275737.png",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "30分钟",
+        "deliveryType": 0,
+        "minPriceTip": "起送 ¥15",
+        "shippingFeeTip": "配送 ¥3",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "1.9km",
+        "averagePriceTip": "人均 ¥22",
+        "discounts2": [
+            {
+                "info": "满30减13;满50减22;满75减35;满100减45",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品5.3折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区中关村东路18号1层05A",
+        "shipping_time": "10:00-23:00"
+    },
+    {
+        "mtWmPoiId": "1024286476777541",
+        "shopName": "好嫂子（知春路店）",
+        "wmPoiScore": 45,
+        "monthSalesTip": "月售6273",
+        "picUrl": "http://p1.meituan.net/waimaipoi/3c3b045945b6eb420a0567a9fcecfb3314182.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "30分钟",
+        "deliveryType": 1,
+        "minPriceTip": "起送 ¥20",
+        "shippingFeeTip": "配送 ¥5",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "1.5km",
+        "averagePriceTip": "人均 ¥38",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满50减8;满75减13",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品6.02折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区知春路50号1幢二层",
+        "shipping_time": "09:45-21:00"
+    },
+    {
+        "mtWmPoiId": "900037367837343",
+        "shopName": "日昌餐馆(五道口店)",
+        "wmPoiScore": 47,
+        "monthSalesTip": "月售3114",
+        "picUrl": "http://p1.meituan.net/waimaipoi/b8c685a09e4a0d2b87baffa19a274ed1167709.png",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "30分钟",
+        "deliveryType": 1,
+        "minPriceTip": "起送 ¥34",
+        "shippingFeeTip": "配送 ¥6",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "2.0km",
+        "averagePriceTip": "人均 ¥53",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满90减5",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品4.95折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区成府路29号五道口国际食尚苑二层",
+        "shipping_time": "10:30-20:00"
+    },
+    {
+        "mtWmPoiId": "1031519201709296",
+        "shopName": "汉堡王（五道口餐厅19195店）",
+        "wmPoiScore": 46,
+        "monthSalesTip": "月售6951",
+        "picUrl": "http://p1.meituan.net/waimaipoi/fe69f5a2097591e2ab215f9dfe6f9e6263177.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "30分钟",
+        "deliveryType": 1,
+        "minPriceTip": "起送 ¥20",
+        "shippingFeeTip": "配送 ¥6",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "2.3km",
+        "averagePriceTip": "人均 ¥39",
+        "recommendInfo": {
+            "icon": "",
+            "recommendReason": "大众点评高分店铺",
+            "type": 3
+        },
+        "discounts2": [
+            {
+                "info": "满80减40;满120减50",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品4.81折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            },
+            {
+                "info": "本店支持开发票，开票金额0元起",
+                "iconUrl": "http://p0.meituan.net/xianfu/476ba65ee80b6385bab292c085baed17940.png",
+                "promotionType": 2,
+                "activityId": -2
+            }
+        ],
+        "address": "北京市海淀区成府路35号华清嘉园7号楼1楼",
+        "shipping_time": "07:00-20:00"
+    },
+    {
+        "mtWmPoiId": "1085296487195106",
+        "shopName": "饿魔公社大食堂(第16档口-美厨在线美食城店)",
+        "wmPoiScore": 47,
+        "monthSalesTip": "月售3290",
+        "picUrl": "http://p0.meituan.net/waimaipoi/b1039a9cb0923170345e44628c91326696854.jpg",
+        "poiTypeIcon": "",
+        "deliveryTimeTip": "38分钟",
+        "deliveryType": 0,
+        "minPriceTip": "起送 ¥15",
+        "shippingFeeTip": "配送 ¥4",
+        "origin_shipping_fee_tip": "",
+        "status": 1,
+        "statusDesc": "",
+        "distance": "3.3km",
+        "averagePriceTip": "人均 ¥17",
+        "discounts2": [
+            {
+                "info": "满30减16;满50减26;满75减35;满100减43;满300减140",
+                "iconUrl": "http://p0.meituan.net/activityconfig/6087b33fd42d14fd94e899084aaef56d1720.png",
+                "promotionType": 2,
+                "activityId": 2
+            },
+            {
+                "info": "折扣商品4.44折起",
+                "iconUrl": "http://p0.meituan.net/activityconfig/3da2d9c7a4ddf89e4e71cfdfff168c391088.png",
+                "promotionType": 2,
+                "activityId": 17
+            }
+        ],
+        "address": "北京市海淀区四道口2号20号楼3层",
+        "shipping_time": "10:00-20:00"
+    }
+]
