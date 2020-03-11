@@ -5,6 +5,10 @@ Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
+        redirect: '/home'
+    },
+    {
+        path: '/index',
         name: 'index',
         component: () =>
             import ('../views/Index.vue'),
@@ -27,6 +31,12 @@ const routes = [{
                     import ('../views/Seller/Seller.vue')
             },
         ]
+    },
+    {
+        path: "/home",
+        name: 'home',
+        component: () =>
+            import ('../views/home/Home.vue')
     },
     {
         path: '/info',

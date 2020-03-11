@@ -94,7 +94,7 @@ export default {
   created() {
     if(this.$store.state.ratings.length==0){
       const that = this
-      const shopId = 26
+      const shopId = this.$store.state.shopId
       this.$API.getRatings(shopId).then(data => {
         that.$store.commit("setRatings", data.data)
       });

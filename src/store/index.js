@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        shopId: 26,
         seller: {},
         food: {},
         sellFood: {},
@@ -14,6 +15,9 @@ export default new Vuex.Store({
         ratings: []
     },
     mutations: {
+        setShopId(state, val) {
+            state.shopId = val
+        },
         setRatings(state, val) {
             state.ratings = val
         },

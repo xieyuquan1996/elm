@@ -26,7 +26,7 @@ export default {
   created() {
     if(this.$store.state.goods.length==0){
       const that =this
-      const shopId = 26
+      const shopId = this.$store.state.shopId
       this.$API.getGoods(shopId).then(data => {
         that.$store.commit("setGoods", data.data)
       })

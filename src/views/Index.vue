@@ -1,11 +1,7 @@
 <template>
   <div class="index">
-    <header>
-      <Introduce :seller="seller" @show="showMore"></Introduce>
-    </header>
-    <div>
-      <Details class="details"></Details>
-    </div>
+    <Introduce :seller="seller" @show="showMore"></Introduce>
+    <Details class="details"></Details>
     <transition name="fade">
       <More v-if="show" :seller="seller" @close="closeMore"></More>
     </transition>
@@ -39,7 +35,7 @@ export default {
   },
   created(){
     const that = this
-    const shopId = 26
+    const shopId = this.$store.state.shopId
     that.$API.getSeller(shopId).then((data) => {
       that.$store.commit('setSeller', data.data)
     })
@@ -60,8 +56,8 @@ export default {
   position relative
   height 100%
   .details
-    position: absolute
-    top: 3.573333rem
+    height 100%
+    top: 0
     bottom: 0
     left 0
     right 0

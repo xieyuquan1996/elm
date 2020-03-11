@@ -54,6 +54,10 @@ function getRatings(shopId) {
     return instance.get(`/api/rating/shopId/${shopId}`)
 }
 
+function getShopList() {
+    return instance.get(`/api/shop/place/`)
+}
+
 /**
  * 新增商店
  */
@@ -81,5 +85,6 @@ export const API = {
     getRatings,
     addShop,
     addUser,
-    addGoods
+    addGoods,
+    getShopList
 }
