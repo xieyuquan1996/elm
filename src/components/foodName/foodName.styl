@@ -1,5 +1,7 @@
 .food-wrapper
   .tittle
+    position sticky
+    top 0
     height .693333rem
     line-height: .693333rem
     padding-left: .373333rem
@@ -52,6 +54,11 @@
           float: right
           right 0
           font-size: .64rem
+          .remove-enter, .remove-leave-to
+            transform: translateX(.266667rem /* 20/75 */);
+            opacity: 0;
+          .remove-enter-active, .remove-leave-active
+            transition: all .8s ease;
           .icon
             float left
             display inline-block

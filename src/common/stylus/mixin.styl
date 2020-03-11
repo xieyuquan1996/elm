@@ -1,4 +1,4 @@
-border-1px($color)
+border-top-bottom($color,$height)
   position: relative
   &:before
     display: block
@@ -6,7 +6,7 @@ border-1px($color)
     width: 100%
     left: 0
     top: 0
-    border-top: 1px solid $color
+    border-top: $height solid $color
     content: ' '
   &:after
     display: block
@@ -14,10 +14,26 @@ border-1px($color)
     width: 100%
     left: 0
     bottom: 0
-    border-bottom: 1px solid $color
+    border-bottom: $height solid $color
     content: ' '
 
 bg-image($url)
   background-image: url($url + "@2x.png")
   @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
     background-image: url($url + "@3x.png")
+
+border-left-right($color,$height,$width,$margin)
+  &:before
+      content ''
+      height $height
+      width $width
+      background $color
+      margin-right $margin
+      display inline-block
+  &:after
+      content ''
+      height $height
+      width $width
+      background $color
+      margin-left $margin
+      display inline-block

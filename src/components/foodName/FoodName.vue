@@ -19,13 +19,17 @@
                 </span>
                 <span class="old-price" v-if="food.oldPrice">￥{{food.oldPrice}}</span>
                 <div class="number">
-                  <span v-if="sellGoogs[food.name]" class="icon" @click.stop="decrease(food.name)">
-                    <i class="icon-remove_circle_outline"></i>
-                  </span>
+                  <transition name="remove">
+                    <span v-if="sellGoogs[food.name]" class="icon" @click.stop="decrease(food.name)">
+                      <i class="icon-remove_circle_outline"></i>
+                    </span>
+                  </transition>
                   <span @click.stop="add(food.name, food.price)">
                     <i class="icon-add_circle"></i>
                   </span>
-                  <span v-if="sellGoogs[food.name]" class="number">{{sellGoogs[food.name].number}}</span>
+                  <transition name="remove">
+                    <span v-if="sellGoogs[food.name]" class="number">{{sellGoogs[food.name].number}}</span>
+                  </transition>
                 </div>
               </div>
             </span>
