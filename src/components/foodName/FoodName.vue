@@ -20,15 +20,15 @@
                 <span class="old-price" v-if="food.oldPrice">￥{{food.oldPrice}}</span>
                 <div class="number">
                   <transition name="remove">
-                    <span v-if="sellGoogs[food.name]" class="icon" @click.stop="decrease(food.name)">
+                    <span v-if="fingFood(food.name)" class="icon" @click.stop="decrease(food.name)">
                       <i class="icon-remove_circle_outline"></i>
                     </span>
                   </transition>
-                  <span @click.stop="add(food.name, food.price)">
-                    <i class="icon-add_circle"></i>
+                  <span @click.stop="add(food)">
+                    <i class="icon-add_circle" style="color:rgb(0,160,220);"></i>
                   </span>
                   <transition name="remove">
-                    <span v-if="sellGoogs[food.name]" class="number">{{sellGoogs[food.name].number}}</span>
+                    <span v-if="fingFood(food.name)" class="number">{{fingFood(food.name).number}}</span>
                   </transition>
                 </div>
               </div>
@@ -41,7 +41,6 @@
 
 <script>
 import Scroll from "@/components/scroll/Scroll.vue";
-import Vue from "vue";
 export default {
   components: {
     Scroll
@@ -49,7 +48,7 @@ export default {
   props: ['goods'],
   data() {
     return {
-      sellGoogs: this.$store.state.sellFood
+      sellGoogs: this.$store.state.sellFood[this.$store.state.shopId]
     };
   },
   computed: {
@@ -69,13 +68,25 @@ export default {
   mounted() {
   },
   methods: {
-    add(name, price) {
-      if (this.sellGoogs[name]) {
-        this.sellGoogs[name].number += 1;
+    fingFood(name){
+      if(this.sellGoogs){
+        return this.sellGoogs.find(item => item.name == name)
+      }
+      return null
+    },
+    add(selectFood) {
+      let food = this.fingFood(selectFood.name)
+      if (food) {
+        food.number += 1;
       } else {
-        Vue.set(this.sellGoogs, name, {
-          price: price,
-          number: 1
+        if(!this.sellGoogs){
+          this.sellGoogs = []
+        }
+        this.sellGoogs.push({
+          name: selectFood.name,
+          price: selectFood.price,
+          number: 1,
+          image: selectFood.image
         });
       }
       this.emitFood()
@@ -85,9 +96,14 @@ export default {
       this.$emit('emit-food', this.sellGoogs)
     },
     decrease(name) {
-      this.sellGoogs[name].number -= 1;
-      if (this.sellGoogs[name].number === 0) {
-        this.sellGoogs[name] = undefined;
+      const that =this
+      let food = this.fingFood(name)
+      food.number -= 1;
+      if (food.number === 0) {
+        let index = that.sellGoogs.findIndex(item => item.name == name)
+        if(index > -1){
+          this.sellGoogs.pop(index)
+        }
       }
       this.emitFood()
     },

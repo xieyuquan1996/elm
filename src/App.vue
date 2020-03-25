@@ -5,9 +5,15 @@
 </template>
 
 <script>
+import {getLocalStorage} from '@/serve/localstorage'
 export default {
   created(){
-    
+    if(!this.$store.token){
+      const token = getLocalStorage('token')
+      if(token){
+        this.$store.commit('setToken',token)
+      }
+    }
   }
 };
 </script>

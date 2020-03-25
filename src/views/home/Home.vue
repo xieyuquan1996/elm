@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="head">
-      <div class="left-wrapper">
+      <div class="left-wrapper" @click="clickAddress">
         <span class="left-icon">
           <i class="icon-location"></i>
         </span>
@@ -71,7 +71,7 @@ export default {
   },
   data() {
     return {
-      location: "华南大桥11111111111",
+      location: "华南大桥",
       kingkongList: [
         {
           cateId: 910,
@@ -238,10 +238,16 @@ export default {
   created(){
     const that = this
     this.$API.getShopList().then((data) => {
-      that.shopList = data.data
+      if(data.data.data){
+        that.shopList = data.data.data
+      }
+      
     })
   },
   methods: {
+    clickAddress(){
+      //this.$router.push({name: 'location'})
+    },
     chooseShop(shopId){
       this.$store.commit('setShopId', shopId)
       this.$router.push({name: 'index'})

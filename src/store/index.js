@@ -5,21 +5,34 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        // 存临时的一个地址信息，用户可能要新增地址
+        tempAddress: {},
+        address: null,
+        preRouter: {},
+        token: '',
         shopId: 26,
         seller: {},
         food: {},
         sellFood: {},
         isFavorite: false,
         loading: 0,
-        goods: [],
-        ratings: []
+        goods: []
     },
     mutations: {
+        setTempAddress(state, val){
+            state.tempAddress = val
+        },
+        setAddress(state, val){
+            state.address = val
+        },
+        setPreRouter(state, val){
+            state.preRouter = val
+        },
+        setToken(state, val) {
+            state.token = val
+        },
         setShopId(state, val) {
             state.shopId = val
-        },
-        setRatings(state, val) {
-            state.ratings = val
         },
         setGoods(state, val) {
             state.goods = val
@@ -37,7 +50,7 @@ export default new Vuex.Store({
             state.food = val
         },
         setSellFood(state, val) {
-            state.sellFood = val
+            Vue.set(state.sellFood,state.seller.shopId,val)
         },
         setDeliveryPrice(state, val) {
             state.deliveryPrice = val

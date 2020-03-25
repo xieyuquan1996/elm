@@ -88,28 +88,24 @@ export default {
     return {
       showContent: false,
       datefmt: "YYYY-mm-dd HH:MM",
-      isAll: -1
+      isAll: -1,
+      ratings: []
     };
   },
   created() {
-    if(this.$store.state.ratings.length==0){
-      const that = this
-      const shopId = this.$store.state.shopId
-      this.$API.getRatings(shopId).then(data => {
-        that.$store.commit("setRatings", data.data)
-      });
-    }
+    const that = this;
+    const shopId = this.$store.state.shopId;
+    this.$API.getRatings(shopId).then(data => {
+      that.ratings = data.data.data;
+    });
   },
   components: {
     Scroll,
     Star
   },
   computed: {
-    ratings(){
-      return this.$store.state.ratings
-    },
-    seller(){
-      return this.$store.state.seller
+    seller() {
+      return this.$store.state.seller;
     },
     iconClass() {
       return ["icon-thumb_up", "icon-thumb_down"];

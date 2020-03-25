@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import {deleteLocalStorage} from '@/serve/localstorage'
 export default {
   data() {
     return {
@@ -29,7 +30,7 @@ export default {
       return this.$store.state.seller.minPrice
     },
     food(){
-      return this.$store.state.sellFood
+      return this.$store.state.sellFood[this.$store.state.seller.shopId]
     },
     total() {
       let price = 0;
@@ -65,7 +66,22 @@ export default {
   methods: {
     pay(){
       if (this.text === '去结算') {
-        alert('支付成功')
+        if(this.$store.state.token){
+          this.$API.validToken().then(data => {
+            if(!data.data.data.code){
+              this.$store.token = null;
+              deleteLocalStorage('token')
+              this.$router.push({path: '/login'})
+            } else {
+              this.$router.push({path: '/order'})
+            }
+          }).catch(err => {
+            console.log(err)
+            this.$router.push({path: '/login'})
+          })
+        } else {
+          this.$router.push({path: '/login'})
+        }
       }
     }
   }

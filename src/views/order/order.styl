@@ -1,0 +1,228 @@
+.order
+    position relative
+    width 100%
+    height 100%
+    color #333333
+    display: flex;
+    flex-direction: column;
+    .header-wrapper
+        height 1.333333rem /* 100/75 */ 
+        display flex
+        text-align center
+        flex-grow: 0;
+        flex-shrink: 0;
+        .icon
+            display inline-block
+            height 100%
+            margin-left .266667rem /* 20/75 */
+            display flex
+            align-items center
+            font-size .666667rem /* 50/75 */
+        .tittle
+            flex 1 0
+            display inline-block
+            height 100%
+            line-height 1.333333rem /* 100/75 */
+            font-size .373333rem /* 28/75 */
+            color #333333
+    .wrapper
+        position absolute
+        top 1.333333rem /* 100/75 */ 
+        z-index 100
+        width 100%
+        bottom 0px
+        display flex
+        align-items: flex-end
+        background-color rgba(157,157,157,0.5)
+    .footer-wrapper
+        flex-grow: 1;
+        flex-shrink: 1;
+        width 100%
+        box-sizing border-box
+        padding 0 .266667rem /* 20/75 */
+        background-color rgba(157,159,163,0.1)
+        overflow auto
+        font-size .4rem /* 30/75 */
+        .address-wrapper,.goods-wrapper,.play-wrapper
+            margin-top .266667rem /* 20/75 */
+            padding  0 .266667rem /* 20/75 */
+            background-color rgb(255,255,255)
+        .address-wrapper
+            border-radius .133333rem /* 10/75 */
+            .top-wrapper
+                display flex
+                align-items center
+                padding .4rem /* 30/75 */ 0
+                border-bottom .013333rem /* 1/75 */ solid rgba(157,159,163,0.5)
+                .location-wrapper
+                    flex 1 0
+                    display flex
+                    .icon
+                        display flex
+                        align-items center
+                        width .533333rem /* 40/75 */
+                    .location
+                        flex 1 0
+                        .address
+                            height .56rem /* 42/75 */
+                            line-height .56rem /* 42/75 */
+                            font-weight bold
+                            margin-bottom .08rem /* 6/75 */
+                .icon
+                    width .266667rem /* 20/75 */
+            .bottom-wrapper
+                .time-wrapper
+                    height 1.2rem /* 90/75 */
+                    display flex
+                    align-items center
+                    .icon
+                        margin-right .266667rem /* 20/75 */
+                    .tittle
+                        font-weight bold
+                        margin-right .133333rem /* 10/75 */
+                    .time
+                        color #348BED
+                .more-wrapper
+                    padding-bottom .4rem /* 30/75 */
+                    font-size .373333rem /* 28/75 */
+                    color #FF8000
+        .goods-wrapper
+            padding  0
+            .shop-wrapper
+                padding 0 
+                height 1.333333rem /* 100/75 */
+                display flex
+                align-items center
+                .avatar
+                    height .533333rem /* 40/75 */
+                    width .533333rem /* 40/75 */
+                .name
+                    margin-left .32rem /* 24/75 */
+                    font-size .373333rem /* 28/75 */
+                    color #666
+            .foods-wrapper
+                display flex
+                padding .266667rem /* 20/75 */
+                background-color rgba(157,159,163,0.1)
+                margin-bottom .133333rem /* 10/75 */
+                .image-wrapper
+                    height 1.466667rem /* 110/75 */
+                    width 1.466667rem /* 110/75 */
+                    .image
+                        height 100%
+                        width 100%
+                .info-wrapper
+                    flex 1 0
+                    margin-left .266667rem /* 20/75 */
+                    .top-wraper
+                        display flex
+                        height .533333rem /* 40/75 */
+                        line-height .533333rem /* 40/75 */
+                        font-size .373333rem /* 28/75 */
+                        .price 
+                            flex 1 0
+                            text-align right
+                &:last-child
+                    margin-bottom 0
+            .delivery-wrapper
+                margin 0 .266667rem /* 20/75 */
+                display flex
+                height 1.36rem /* 102/75 */
+                align-items center
+                .delivery-price
+                    flex 1 0
+                    text-align right
+            .total-wrapper
+                display flex
+                height 1.173333rem /* 88/75 */
+                align-items center
+                .total
+                    flex 1 0
+                    text-align right
+                    margin-right .4rem /* 30/75 */
+                .subtotal
+                    font-weight bold
+                    .price
+                        color #FB4E44
+        .play-wrapper
+            padding 0
+            padding-left .266667rem /* 20/75 */
+            font-size .373333rem /* 28/75 */
+            .content-height
+                display flex
+                align-items center
+                height 1.333333rem /* 100/75 */
+                border-top .026667rem /* 2/75 */ solid rgba(157,159,163,0.3)
+                padding-right .266667rem /* 20/75 */
+                .my-input
+                    width 100%
+                    border 0
+            .way
+                border 0
+                padding-right .746667rem /* 56/75 */
+                .left-way
+                    flex 1 1
+                right-way
+                    flex 1 1
+                    text-align right
+            .tableware
+                .left-tableware
+                    flex 1 0
+                .right-tableware
+                    text-align right
+                    display flex
+                    .energy
+                        color #4DC6A5
+                    .dark
+                        color #999
+            .note
+                display flex
+                .left-note
+                    flex initial
+                    margin-right .8rem /* 60/75 */
+                    text-align right
+                .right-note
+                    flex 1
+                    text-align right
+                    overflow hidden
+                    white-space nowrap
+                    text-overflow ellipsis
+                    .right-note-content
+                        text-align right
+                        color #999
+                    .note-highlight
+                        color #333
+            .invoice
+                .icon
+                    flex 1
+                    text-align right
+                    font-size .933333rem /* 70/75 */
+        .other
+            font-size .32rem /* 24/75 */
+            padding .32rem /* 24/75 */ .4rem /* 30/75 */ .32rem /* 24/75 */ .066667rem /* 5/75 */
+            text-align right
+            color #666666
+    .fix-wrapper
+        flex-grow: 0;
+        flex-shrink: 0;
+        height 1.333333rem /* 100/75 */
+        display flex
+        font-size .426667rem /* 32/75 */
+        .total
+            flex 1 0
+            height 100%
+            .tittle
+                display flex
+                height 100%
+                float right
+                align-items center
+                margin-right .4rem /* 30/75 */
+                .money
+                    color #FB4E44
+        .place_order
+            height 1.333333rem /* 100/75 */
+            width 3.333333rem /* 250/75 */
+            line-height 1.333333rem /* 100/75 */
+            background-color #f8c74e
+            text-align center
+            font-weight bold

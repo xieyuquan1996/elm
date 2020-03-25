@@ -1,5 +1,6 @@
 <template>
   <div class="index">
+    <div class="close-wrapper" @click="closeBack"><i class="icon-arrow_lift"></i></div>
     <Introduce :seller="seller" @show="showMore"></Introduce>
     <Details class="details"></Details>
     <transition name="fade">
@@ -37,10 +38,15 @@ export default {
     const that = this
     const shopId = this.$store.state.shopId
     that.$API.getSeller(shopId).then((data) => {
-      that.$store.commit('setSeller', data.data)
+      if(data.status==200){
+        that.$store.commit('setSeller', data.data.data)
+      }
     })
   },
   methods: {
+    closeBack(){
+      this.$router.push({path: '/'})
+    },
     closeMore(status){
       this.show = status
     },
@@ -55,6 +61,14 @@ export default {
 .index
   position relative
   height 100%
+  .close-wrapper
+    position absolute
+    top 0
+    left 0
+    padding .266667rem /* 20/75 */
+    z-index 999
+    font-size .533333rem /* 40/75 */
+    color rgba(255,255,255,0.5)
   .details
     height 100%
     top: 0

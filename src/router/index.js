@@ -1,11 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import {getLocalStorage} from '../serve/localstorage'
 
+import store from '../store/index'
 Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
         redirect: '/home'
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('../views/login/Login.vue')
     },
     {
         path: '/index',
@@ -33,6 +40,24 @@ const routes = [{
         ]
     },
     {
+        path: "/location",
+        name: 'location',
+        component: () =>
+            import ('../views/location/Location.vue')
+    },
+    {
+        path: "/contact",
+        name: 'contact',
+        component: () =>
+            import ('../views/contact/Contact.vue')
+    },
+    {
+        path: "/order",
+        name: 'order',
+        component: () =>
+            import ('../views/order/Order.vue')
+    },
+    {
         path: "/home",
         name: 'home',
         component: () =>
@@ -43,6 +68,12 @@ const routes = [{
         name: 'Info',
         component: () =>
             import ('../views/info/Info.vue')
+    },
+    {
+        path: '/address',
+        name: 'address',
+        component: () =>
+            import ('../views/address/Address.vue')
     },
     {
         path: '/about',
@@ -59,6 +90,23 @@ const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_UR,
     routes
+})
+
+router.beforeEach((to, from, next) => {
+    if(to.name == 'login'){
+        // 记录跳转前的路由，这是为了登录后，可以跳转回原来的页面
+        store.commit('setPreRouter', from)
+        const token = store.token || getLocalStorage('token')
+        if (token) {
+            next({
+                path: '/home',
+            })
+        }
+        next()
+    } else {
+        next()
+    }
+    
 })
 
 export default router

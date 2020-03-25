@@ -80,14 +80,24 @@ export default {
       food: this.$store.state.food,
       datefmt: 'YYYY-mm-dd HH:MM',
       showContent: false,
-      isAll: -1
+      isAll: -1,
+      ratingList: [],
+      ragingsList: []
     };
+  },
+  created(){
+    const that = this
+    that.$API.getRatingsByFoodId(that.food.foodId).then(data => {
+      if(data.data.data){
+        that.ragingsList = data.data.data
+      }
+    })
   },
   computed: {
     foodRatings(){
       let ratings = []
       let that = this
-      this.food.ratings.map(item => {
+      this.ratingList.map(item => {
         if(that.isAll !== -1){
           if(that.isAll !== item.rateType){
             return
@@ -127,7 +137,7 @@ export default {
           class: "bad"
         }
       ];
-      for (const val of this.food.ratings) {
+      for (const val of this.ragingsList) {
         if (val.rateType === 1) {
           ratings[2].number += 1;
         } else {

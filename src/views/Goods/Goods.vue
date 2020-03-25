@@ -28,7 +28,9 @@ export default {
       const that =this
       const shopId = this.$store.state.shopId
       this.$API.getGoods(shopId).then(data => {
-        that.$store.commit("setGoods", data.data)
+        if(data.data.data){
+          that.$store.commit("setGoods", data.data.data)
+        }
       })
     }
   },
