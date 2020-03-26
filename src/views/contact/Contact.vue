@@ -57,9 +57,9 @@ export default {
   },
   created() {
     const that = this;
-    if (that.$route.params.address) {
+    if (that.$store.state.address) {
       that.address = Object.assign(
-        that.$route.params.address,
+        that.address,
         that.$store.state.address
       );
     }
@@ -94,11 +94,10 @@ export default {
       });
     },
     close() {
-      this.$store.commit("setTempAddress", {});
       this.$router.push({ name: "address" });
     },
     selectReceivingAddress() {
-      this.$store.commit("setTempAddress", this.address);
+      this.$store.commit("setAddress", this.address);
       this.$router.push({ name: "location" });
     }
   }

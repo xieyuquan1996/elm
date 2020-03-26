@@ -5,9 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        // 存临时的一个地址信息，用户可能要新增地址
-        tempAddress: {},
-        address: null,
+        address: {},
         preRouter: {},
         token: '',
         shopId: 26,
@@ -19,9 +17,6 @@ export default new Vuex.Store({
         goods: []
     },
     mutations: {
-        setTempAddress(state, val){
-            state.tempAddress = val
-        },
         setAddress(state, val){
             state.address = val
         },

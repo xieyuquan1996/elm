@@ -18,8 +18,8 @@
       </div>
       <div class="current-address">
         当前位置:
-        <span class="address-tittle">中关村</span>
-        <span class="refress-address">
+        <span class="address-tittle" @click="chooseAddress">{{nowLocation.address?nowLocation.address:'请选择位置'}}</span>
+        <span class="refress-address" @click="selectLocation">
           <i class="icon-refresh-location"></i>重新定位
         </span>
       </div>
@@ -53,6 +53,7 @@ export default {
   },
   data() {
     return {
+      nowLocation: {},
       address: "",
       city: "北京",
       addressList: [],
@@ -88,6 +89,7 @@ export default {
   },
   created(){
       const that = this
+      that.nowLocation = that.$store.state.address.address? that.$store.state.address: that.nowLocation
       that.$API.getAddressList().then(data => {
           if(data.data.data.addressList){
               this.addressList = data.data.data.addressList
@@ -104,6 +106,16 @@ export default {
       }
   },
   methods: {
+    chooseAddress(){
+      if(this.nowLocation.address){
+        this.selectAddress(this.nowLocation)
+      } else {
+        alert('请选择一个地址')
+      }
+    },
+    selectLocation(){
+      this.$router.push({name:'map'})
+    },
       clickMore(){
           this.moreAddress = (this.moreAddress + 1) & 1
       },

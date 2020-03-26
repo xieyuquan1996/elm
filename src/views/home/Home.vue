@@ -246,7 +246,7 @@ export default {
   },
   created() {
     const that = this
-    that.location = that.$store.state.address? that.$store.state.address.address: ''
+    that.location = that.$store.state.address.address? that.$store.state.address.address: ''
     this.$API.getShopList().then(data => {
       if (data.data.data) {
         that.shopList = data.data.data;
