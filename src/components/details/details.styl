@@ -1,14 +1,25 @@
 .details
   position relative
+  height 100%
+  display flex
+  flex-direction column
   .tab
+    position sticky
+    z-index 100
+    top 0
+    flex-grow 0
+    flex-shrink 0
     height 1.066667rem
     border-bottom: .013334rem solid rgba(7,17,27,0.1)
+    background-color rgb(255,255,255)
   .fade-enter-active, .fade-leave-active 
     transition: opacity .3s
   .fade-enter, .fade-leave-to 
     opacity: 0
   .contain
-    height: calc(100% - 1.066667rem - 1.28rem)
+    flex-grow 1
+    flex-shrink 1
+    overflow hidden
   .foot
     position: fixed
     width: 100%

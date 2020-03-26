@@ -17,7 +17,7 @@
               <div class="icon">
                 <i class="icon-location"></i>
               </div>
-              <div class="location" v-if="address">
+              <div class="location" v-if="address.person||address.person!=''">
                 <div class="address">{{address.address}} {{address.doorplate}}</div>
                 <div class="phone">{{address.person}} {{address.sex}}</div>
               </div>

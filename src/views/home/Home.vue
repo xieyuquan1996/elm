@@ -5,7 +5,7 @@
         <span class="left-icon">
           <i class="icon-location"></i>
         </span>
-        <div class="loaction-tittle">{{location}}</div>
+        <div class="loaction-tittle">{{location==''?'选择地址':location}}</div>
         <span class="right-icon">
           <i class="icon-keyboard_arrow_right"></i>
         </span>
@@ -16,31 +16,38 @@
         </div>
       </transition>
     </div>
-    <div class="footer">
-      <div class="kingkong-wrapper">
-        <div class="kingkong-parent" v-for="(item,index) of kingkongs" :key="index">
-          <div v-for="kingkong of item" :key="kingkong.cateId" class="kingkong-child">
-            <div class="kingkong-img">
-              <img class="img" :src="kingkong.icon" />
-            </div>
-            <div class="kingkong-name">{{kingkong.name}}</div>
+    <div class="kingkong-wrapper">
+      <div class="kingkong-parent" v-for="(item,index) of kingkongs" :key="index">
+        <div v-for="kingkong of item" :key="kingkong.cateId" class="kingkong-child">
+          <div class="kingkong-img">
+            <img class="img" :src="kingkong.icon" />
           </div>
+          <div class="kingkong-name">{{kingkong.name}}</div>
         </div>
-        <div class="kingkong-parent"></div>
       </div>
-      <div class="tittle-wrapper">附近商家</div>
-      <div class="search-box">
-        <ul class="search-content">
-          <li v-for="item of searchList" :key="item.name" class="content">
-            {{item.name}}
-            <i v-if="item.icon" :class="item.icon"></i>
-          </li>
-        </ul>
+      <div class="kingkong-parent"></div>
+    </div>
+    <div class="footer">
+      <div class="sticky-wrapper">
+        <div class="tittle-wrapper">附近商家</div>
+        <div class="search-box">
+          <ul class="search-content">
+            <li v-for="item of searchList" :key="item.name" class="content">
+              {{item.name}}
+              <i v-if="item.icon" :class="item.icon"></i>
+            </li>
+          </ul>
+        </div>
       </div>
       <ul class="shop-wrapper">
-        <li v-for="shop of shopList" :key="shop.shopId" class="shop-content" @click="chooseShop(shop.shopId)">
+        <li
+          v-for="shop of shopList"
+          :key="shop.shopId"
+          class="shop-content"
+          @click="chooseShop(shop.shopId)"
+        >
           <div class="shop-left">
-            <img :src="shop.avatar" class="image">
+            <img :src="shop.avatar" class="image" />
           </div>
           <div class="shop-right">
             <div class="shop-right-top">{{shop.name}}</div>
@@ -50,11 +57,13 @@
                 <span>{{shop.score}}</span>
               </div>
               <div class="distance">
-                <span>{{shop.deliveryTime}}分钟 |</span><span>{{shop.distance}}</span>
+                <span>{{shop.deliveryTime}}分钟 |</span>
+                <span>{{shop.distance}}</span>
               </div>
             </div>
             <div class="shop-right-bottom">
-              <span>起送￥{{shop.minPrice}}</span> | <span>配送￥{{shop.deliveryPrice}}</span>
+              <span>起送￥{{shop.minPrice}}</span> |
+              <span>配送￥{{shop.deliveryPrice}}</span>
             </div>
           </div>
         </li>
@@ -64,14 +73,14 @@
 </template>
 
 <script>
-import Star from '@/components/star/Star.vue'
+import Star from "@/components/star/Star.vue";
 export default {
   components: {
     Star
   },
   data() {
     return {
-      location: "华南大桥",
+      location: '',
       kingkongList: [
         {
           cateId: 910,
@@ -210,11 +219,11 @@ export default {
           icon: "icon-screening"
         }
       ],
-      shopList:[],
+      shopList: [],
       starStyle: {
-        height: '.266667rem',
-        width: '.266667rem',
-        'margin-right': 0
+        height: ".266667rem",
+        width: ".266667rem",
+        "margin-right": 0
       }
     };
   },
@@ -235,22 +244,22 @@ export default {
       return res;
     }
   },
-  created(){
+  created() {
     const that = this
-    this.$API.getShopList().then((data) => {
-      if(data.data.data){
-        that.shopList = data.data.data
+    that.location = that.$store.state.address? that.$store.state.address.address: ''
+    this.$API.getShopList().then(data => {
+      if (data.data.data) {
+        that.shopList = data.data.data;
       }
-      
-    })
+    });
   },
   methods: {
-    clickAddress(){
-      //this.$router.push({name: 'location'})
+    clickAddress() {
+      this.$router.push({name: 'map'})
     },
-    chooseShop(shopId){
-      this.$store.commit('setShopId', shopId)
-      this.$router.push({name: 'index'})
+    chooseShop(shopId) {
+      this.$store.commit("setShopId", shopId);
+      this.$router.push({ name: "index" });
     }
   }
 };

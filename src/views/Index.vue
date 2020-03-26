@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     <div class="close-wrapper" @click="closeBack"><i class="icon-arrow_lift"></i></div>
-    <Introduce :seller="seller" @show="showMore"></Introduce>
+    <Introduce :seller="seller" @show="showMore" class="introduce-wrapper"></Introduce>
     <Details class="details"></Details>
     <transition name="fade">
       <More v-if="show" :seller="seller" @close="closeMore"></More>
@@ -61,6 +61,8 @@ export default {
 .index
   position relative
   height 100%
+  display flex
+  flex-direction: column;
   .close-wrapper
     position absolute
     top 0
@@ -69,20 +71,23 @@ export default {
     z-index 999
     font-size .533333rem /* 40/75 */
     color rgba(255,255,255,0.5)
+  .introduce-wrapper,.foot
+    flex-grow: 0;
+    flex-shrink: 0;
   .details
-    height 100%
+    flex-grow: 1;
+    flex-shrink: 1;
     top: 0
     bottom: 0
     left 0
     right 0
+    overflow auto
   .fade-enter-active, .fade-leave-active 
     transition: opacity .8s
   .fade-enter, .fade-leave-to 
     opacity: 0
   .foot
-    position: fixed
     width: 100%
-    z-index: 10
     height 1.28rem
     bottom: 0
     background-color: #141d27

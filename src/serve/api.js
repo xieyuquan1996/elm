@@ -48,6 +48,18 @@ instance.interceptors.response.use(response, response_err)
 
 const data = require('./data.json')
 
+function getNowLocation(val){
+    const data = {
+        key:'1c44f767c5d319c1dee50f3d45dcc0b8',
+        radius:'1000',
+        extensions:'all',
+        batch:'false',
+        roadlevel:'0'
+      }
+    data.location = val
+    return instance.get('/v3/geocode/regeo',{params:data})
+}
+
 function getSeller(shopId) {
     return instance.get(`/api/shop/id/${shopId}`)
 }
@@ -157,5 +169,6 @@ export const API = {
     saveAddress,
     addAddress,
     deleteAddress,
-    getAddressList
+    getAddressList,
+    getNowLocation
 }

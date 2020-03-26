@@ -4,6 +4,9 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 
+//引入高德地图
+//import './common/js/map.js'
+
 import './common/stylus/index.styl'
 
 import { API } from './serve/api'

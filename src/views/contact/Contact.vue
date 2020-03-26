@@ -23,8 +23,9 @@
     <div class="common">
       <span class="left-common">收货地址：</span>
       <div class="right-common address" @click="selectReceivingAddress">
-        <i class="icon-location"></i>
-        <div class="address-content">{{address.address}}</div>
+        <i class="icon-white-location"></i>
+        <div v-if="address.address!=''" class="address-content">{{address.address}}</div>
+        <div v-else class="address-content dark-content">点击选择</div>
         <i class="icon-keyboard_arrow_right"></i>
       </div>
     </div>
@@ -43,7 +44,7 @@ export default {
   data() {
     return {
       address: {
-        address: "中关村",
+        address: "",
         latitude: 38.6518,
         longitude: 104.07642,
         doorplate: "",
@@ -58,8 +59,8 @@ export default {
     const that = this;
     if (that.$route.params.address) {
       that.address = Object.assign(
-        that.$store.state.tempAddress,
-        that.$route.params.address
+        that.$route.params.address,
+        that.$store.state.address
       );
     }
     that.addStatue = this.address.id ? false : true;

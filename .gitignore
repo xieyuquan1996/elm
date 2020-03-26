@@ -19,3 +19,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+解列.md
+解列.pdf
+springCloud.md
+src/common/js/map.js

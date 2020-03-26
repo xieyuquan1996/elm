@@ -110,7 +110,8 @@ export default {
       selectAddress(address){
           const that = this
           address = this.$store.state.address?Object.assign(that.$store.state.address, address): address
-          that.$router.push({name: 'contact',params:{address:address}})
+          this.$store.commit('setAddress', address)
+          that.$router.go(-1)
       }
   }
 };

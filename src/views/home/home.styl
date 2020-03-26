@@ -5,7 +5,9 @@
     height 100%
     width 100%
     font-size 0
+    overflow auto
     .head
+        position relative
         top 0
         width 100%
         box-sizing border-box
@@ -41,50 +43,57 @@
                 height 100%
                 border-radius .533333rem /* 40/75 */
                 background-color rgb(255,255,255)
-    .footer
-        .kingkong-wrapper
-            .kingkong-parent
-                display flex
-                justify-content space-around 
-                .kingkong-child
-                    padding-top .4rem /* 30/75 */
-                    display inline-block
-                    width 1.173333rem /* 88/75 */
-                    .kingkong-img
-                        width 1.173333rem /* 88/75 */
-                        height 1.173333rem /* 88/75 */
-                        .img
-                            width 100%
-                            height 100%
-                    .kingkong-name
-                        margin-top .133333rem /* 10/75 */
-                        font-size .293333rem /* 22/75 */
-                        text-align center
-        .tittle-wrapper
-            position relative
+    .kingkong-wrapper
+        .kingkong-parent
             display flex
-            justify-content center
-            font-weight 600
-            align-items center
-            line-height 1.4
-            font-size .453333rem /* 34/75 */
-            margin-top .4rem /* 30/75 */
-            margin-bottom .133333rem /* 10/75 */
-            border-left-right(rgba(157,157,157,0.5),.013333rem,1.6rem,.08rem)
-        .search-box
-            position relative
-            width 100%
-            background #ffffff
-            font-size .373333rem /* 28/75 */
-            border-top-bottom(rgba(157,157,157,0.5),.013333rem)
-            .search-content
-                width 100%
-                .content
-                    width 25%
-                    box-sizing border-box
-                    line-height 1.066667rem /* 80/75 */
-                    display inline-block
+            justify-content space-around 
+            .kingkong-child
+                padding-top .4rem /* 30/75 */
+                display inline-block
+                width 1.173333rem /* 88/75 */
+                .kingkong-img
+                    width 1.173333rem /* 88/75 */
+                    height 1.173333rem /* 88/75 */
+                    .img
+                        width 100%
+                        height 100%
+                .kingkong-name
+                    margin-top .133333rem /* 10/75 */
+                    font-size .293333rem /* 22/75 */
                     text-align center
+
+    .footer
+        position relative
+        height 100%
+        .sticky-wrapper
+            position: sticky
+            top 0
+            background-color rgb(255,255,255)
+            .tittle-wrapper
+                position relative
+                display flex
+                justify-content center
+                font-weight 600
+                align-items center
+                line-height 1.4
+                font-size .453333rem /* 34/75 */
+                margin-top .4rem /* 30/75 */
+                margin-bottom .133333rem /* 10/75 */
+                border-left-right(rgba(157,157,157,0.5),.013333rem,1.6rem,.08rem)
+            .search-box
+                position relative
+                width 100%
+                background #ffffff
+                font-size .373333rem /* 28/75 */
+                border-top-bottom(rgba(157,157,157,0.5),.013333rem)
+                .search-content
+                    width 100%
+                    .content
+                        width 25%
+                        box-sizing border-box
+                        line-height 1.066667rem /* 80/75 */
+                        display inline-block
+                        text-align center
         .shop-wrapper
             background rgba(240,240,240,0.5)
             font-size .293333rem /* 22/75 */
@@ -126,5 +135,12 @@
                         .distance
                             flex 1 0
                             text-align right
+    .filter-wrapper
+        position absolute
+        top 8.066667rem /* 605/75 */
+        bottom 0px
+        width 100%
+        z-index 10
+        background-color rgba(157,157,157,0.3)
 
 
