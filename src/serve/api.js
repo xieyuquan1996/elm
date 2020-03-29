@@ -48,6 +48,8 @@ instance.interceptors.response.use(response, response_err)
 
 const data = require('./data.json')
 
+
+// 根据经纬度获取到现在可能的位置，因为是选周边最近的好位置
 function getNowLocation(val){
     const data = {
         key:'1c44f767c5d319c1dee50f3d45dcc0b8',
@@ -68,9 +70,6 @@ function getGoods(shopId) {
     return instance.get(`/api/goods/shopId/${shopId}`)
 }
 
-function getGoodsTest(shopId) {
-    return instance.get(`/api/goods/shopId/${shopId}`)
-}
 
 function getRatings(shopId) {
     return instance.get(`/api/ratings/shopId/${shopId}`)
@@ -94,6 +93,29 @@ function getAddress(shopId){
 
 function getAddressList(){
     return instance.get(`/api/address/get`)
+}
+// 根据关键字搜索地区
+function getPlaceText(keywords, city){
+    let param = {
+        extensions: 'all',
+        key: '1c44f767c5d319c1dee50f3d45dcc0b8',
+        page: 1,
+        offset: 20,
+        output: 'josn',
+        city: city,
+        keywords: keywords
+    }
+    return instance.get('/v3/place/text', {params:param})
+}
+
+// 附近的位置
+function getPlaceAround(location){
+    let param = {
+        key: '1c44f767c5d319c1dee50f3d45dcc0b8',
+        location: location,
+        output: 'josn'
+    }
+    return instance.get('/v3/place/around', {params:param})
 }
 
 function saveAddress(address){
@@ -160,7 +182,6 @@ export const API = {
     addUser,
     addGoods,
     getShopList,
-    getGoodsTest,
     getVerityCode,
     login,
     getRatingsByFoodId,
@@ -170,5 +191,7 @@ export const API = {
     addAddress,
     deleteAddress,
     getAddressList,
-    getNowLocation
+    getNowLocation,
+    getPlaceText,
+    getPlaceAround
 }

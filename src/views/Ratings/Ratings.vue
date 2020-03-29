@@ -1,5 +1,5 @@
 <template>
-  <Scroll class="ratings">
+  <div class="ratings">
     <div>
       <div class="head">
         <div class="left-wrapper">
@@ -77,11 +77,10 @@
         </div>
       </div>
     </div>
-  </Scroll>
+  </div>
 </template>
 
 <script>
-import Scroll from "@/components/scroll/Scroll.vue";
 import Star from "@/components/star/Star.vue";
 export default {
   data() {
@@ -100,7 +99,6 @@ export default {
     });
   },
   components: {
-    Scroll,
     Star
   },
   computed: {

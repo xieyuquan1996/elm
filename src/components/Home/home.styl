@@ -1,0 +1,199 @@
+@import '../../common/stylus/mixin.styl';
+
+.head-wrapper {
+    width: 100%;
+    height: 100%;
+
+    .head {
+        position: relative;
+        top: 0;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        height: 1.333333rem; /* 100/75 */
+        line-height: 1.333333rem; /* 100/75 */
+        background: #1C1B20;
+        color: rgb(255, 255, 255);
+        padding: 0 0.266667rem; /* 20/75 */
+        font-size: 0.426667rem; /* 32/75 */
+
+        .left-wrapper {
+            float: left;
+            display: flex;
+            justify-content: center;
+
+            .left-icon {
+                margin-right: 0.133333rem; /* 10/75 */
+            }
+
+            .loaction-tittle {
+                display: inline-block;
+                max-width: 3.733333rem; /* 280/75 */
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            .right-icon {
+                margin-right: 0.533333rem; /* 40/75 */
+            }
+        }
+
+        .right-wrapper {
+            flex: 1;
+            box-sizing: border-box;
+            width: 100%;
+            height: 1.333333rem; /* 100/75 */
+            padding: 0.133333rem; /* 10/75 */
+
+            .content {
+                width: 100%;
+                height: 100%;
+                border-radius: 0.533333rem; /* 40/75 */
+                background-color: rgb(255, 255, 255);
+            }
+        }
+    }
+
+    .kingkong-wrapper {
+        .kingkong-parent {
+            display: flex;
+            justify-content: space-around;
+
+            .kingkong-child {
+                padding-top: 0.4rem; /* 30/75 */
+                display: inline-block;
+                width: 1.173333rem; /* 88/75 */
+
+                .kingkong-img {
+                    width: 1.173333rem; /* 88/75 */
+                    height: 1.173333rem; /* 88/75 */
+
+                    .img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .kingkong-name {
+                    margin-top: 0.133333rem; /* 10/75 */
+                    font-size: 0.293333rem; /* 22/75 */
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .footer {
+        position: relative;
+        height: 100%;
+
+        .sticky-wrapper {
+            position: sticky;
+            top: 0;
+            background-color: rgb(255, 255, 255);
+
+            .tittle-wrapper {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                font-weight: 600;
+                align-items: center;
+                line-height: 1.4;
+                font-size: 0.453333rem; /* 34/75 */
+                margin-top: 0.4rem; /* 30/75 */
+                margin-bottom: 0.133333rem; /* 10/75 */
+                border-left-right(rgba(157, 157, 157, 0.5), 0.013333rem, 1.6rem, 0.08rem);
+            }
+
+            .search-box {
+                position: relative;
+                width: 100%;
+                background: #ffffff;
+                font-size: 0.373333rem; /* 28/75 */
+                border-top-bottom(rgba(157, 157, 157, 0.5), 0.013333rem);
+
+                .search-content {
+                    width: 100%;
+
+                    .content {
+                        width: 25%;
+                        box-sizing: border-box;
+                        line-height: 1.066667rem; /* 80/75 */
+                        display: inline-block;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .shop-wrapper {
+            background: rgba(240, 240, 240, 0.5);
+            font-size: 0.293333rem; /* 22/75 */
+
+            .shop-content {
+                margin: 0.133333rem; /* 10/75 */
+                display: flex;
+                padding: 0.133333rem; /* 10/75 */
+                padding-bottom: 0.533333rem; /* 40/75 */
+                background-color: rgb(255, 255, 255);
+                border-radius: 0.066667rem; /* 5/75 */
+
+                .shop-left {
+                    width: 2.026667rem; /* 152/75 */
+                    height: 1.52rem; /* 114/75 */
+
+                    .image {
+                        height: 1.52rem; /* 114/75 */
+                        width: 2.026667rem; /* 152/75 */
+                        background-repeat: repeat;
+                        flex-shrink: 0;
+                    }
+                }
+
+                .shop-right {
+                    flex: 1 0;
+                    padding-left: 0.213333rem; /* 16/75 */
+
+                    .shop-right-top {
+                        margin-bottom: 0.106667rem; /* 8/75 */
+                        font-size: 0.426667rem; /* 32/75 */
+                        font-weight: 600;
+                        width: 80%;
+                        text-overflow: ellispsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                    }
+
+                    .shop-right-center {
+                        display: flex;
+                        height: 0.426667rem; /* 32/75 */
+                        line-height: 0.426667rem; /* 32/75 */
+                        margin-bottom: 0.106667rem; /* 8/75 */
+
+                        .sorce {
+                            .start {
+                                display: inline-block;
+                                margin-right: 0.106667rem; /* 8/75 */
+                            }
+                        }
+
+                        .distance {
+                            flex: 1 0;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .filter-wrapper {
+        position: absolute;
+        top: 8.066667rem; /* 605/75 */
+        bottom: 0px;
+        width: 100%;
+        z-index: 10;
+        background-color: rgba(157, 157, 157, 0.3);
+    }
+}

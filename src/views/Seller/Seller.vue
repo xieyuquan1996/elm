@@ -1,6 +1,5 @@
 <template>
-<Scroll class="seller">
-  <div>
+<div class="seller">
     <div class="shop-info">
       <div class="first-wrapper">
         <div class="left-wrapper">
@@ -44,13 +43,11 @@
     <div class="seller-info">
       <div class="tittle">商家信息</div>
       <div class="info" v-for="item of seller.infos" :key="item">{{item}}</div>
-    </div>
   </div>
-</Scroll>
+</div>
 </template>
 
 <script>
-import Scroll from "@/components/scroll/Scroll.vue";
 import Star from "@/components/star/Star.vue";
 import Icon from '@/components/icon/Icon.vue'
 import Carousel from "@/components/carousel/Carousel.vue"
@@ -101,11 +98,11 @@ export default {
     }
   },
   components: {
-    Star,Icon,Scroll,Carousel
+    Star, Icon ,Carousel
   }
 };
 </script>
 
 <style lang="stylus" scoped>
-@import './seller.styl';
+@import 'seller.styl'
 </style>

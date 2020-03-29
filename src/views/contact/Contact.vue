@@ -35,7 +35,7 @@
     </div>
     <div class="common-buttom hightligh" @click="saveAddress">保存</div>
     <div class="common-buttom" @click="deleteAddress">删除</div>
-    <div class="common-buttom" @click="close">返回</div>
+    <div class="common-buttom" @click="back()">返回</div>
   </div>
 </template>
 
@@ -92,6 +92,10 @@ export default {
           that.close();
         }
       });
+    },
+    back(){
+      this.$store.dispatch('setLocation');
+      this.close();
     },
     close() {
       this.$router.push({ name: "address" });

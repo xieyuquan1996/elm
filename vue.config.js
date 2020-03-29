@@ -13,7 +13,7 @@ module.exports = {
                 }
             },
             '/api':{
-                target: 'http://shop.1ice.cn/',//后端接口地址
+                target: 'https://shop.1ice.cn/',//后端接口地址
                 secure: true, // 如果是https接口，需要配置这个参数
                 changeOrigin: true,//是否允许跨越
                 pathRewrite: {

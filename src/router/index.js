@@ -40,6 +40,12 @@ const routes = [{
         ]
     },
     {
+        path: "/orderList",
+        name: 'orderList',
+        component: () =>
+            import ('../views/orderList/OrderList.vue')
+    },
+    {
         path: "/map",
         name: 'map',
         component: () =>

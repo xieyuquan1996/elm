@@ -2,30 +2,31 @@
   <div class="details">
     <Tab :tab-data="tabData" class="tab" @on-click='jump'></Tab>
     <transition name="fade">
-      <router-view class="contain"/>
+      <component :is="componentName"></component>
     </transition>
   </div>
 </template>
 
 <script>
 import Tab from '@/components/tab/Tab.vue'
+import Goods from '@/views/Goods/Goods.vue'
+import Ratings from '@/views/Ratings/Ratings.vue'
+import Seller from '@/views/Seller/Seller.vue'
 export default {
   components: {
-    Tab
+    Tab, Goods, Ratings, Seller
   },
   data() {
     return {
+      componentName: 'Goods',
       tabData: ['商品', '评价', '商家'],
-      taburl: ['goods', 'ratings', 'seller']
+      componentNameList: ['Goods', 'Ratings', 'Seller']
     }
-  },
-  created(){
-    this.$router.push({path: 'goods'})
   },
   methods: {
     jump(index) {
-      const url = this.taburl[index]
-      this.$router.push({path: url})
+      this.componentName = this.componentNameList[index]
+      //this.$router.push({path: url})
     }
   }
 }

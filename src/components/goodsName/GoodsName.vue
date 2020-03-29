@@ -1,5 +1,5 @@
 <template>
-  <Scroll ref="scroll">
+  <Scroll ref="scroll" :scrollY="scrollYVal">
     <ul class="good" ref="leftWrapper">
       <li
         class="tittle"
@@ -19,16 +19,16 @@
 </template>
 
 <script>
-import Scroll from "@/components/scroll/Scroll.vue";
+import Scroll from "@/components/MyScroll/Scroll.vue";
 export default {
-  components: {
-    Scroll
-  },
+  components:{ Scroll },
   props: ["goods"],
   data() {
     return {
       currentIndex: 0,
-      jumpIndex: 0
+      jumpIndex: 0,
+      lastTime: new Date(),
+      scrollYVal: 0
     };
   },
   computed: {
@@ -42,15 +42,12 @@ export default {
           res.push(-item.offsetTop);
         });
       }
-      this.$refs.good.map(item => {
-        res.push(-item.offsetTop);
-      });
       return res
     },
-    scrollY(){
+    clientHeight(){
       let res = 0;
       if(this.$refs.scroll){
-        res = this.$refs.scroll.scroll.wrapper.clientHeight
+        res = this.$refs.scroll.$refs.scroll.clientHeight
       }
       return res
     }
@@ -63,16 +60,12 @@ export default {
     },
     setCurrentIndex(val) {
       // 向上跳一个，防止被遮住
-      if (this.scrollY <= -this.topList[val]) {
-        this.jumpIndex += 1;
-        this.scrollY -= this.jumpIndex * this.topList[1];
-        this.scrollToY(this.jumpIndex);
+      if(-this.topList[this.jumpIndex] > -this.topList[val]){
+        this.scrollToY(--this.jumpIndex)
       }
       // 向下跳一个，防止被遮住
-      if (this.jumpIndex > this.currentIndex) {
-        this.jumpIndex -= 1;
-        this.scrollY += this.topList[1];
-        this.scrollToY(this.jumpIndex);
+      else if((this.clientHeight - this.topList[this.jumpIndex]) < (-this.topList[val] + this.$refs.good[val].clientHeight)){
+        this.scrollToY(++this.jumpIndex)
       }
       this.currentIndex = val;
     },
@@ -81,7 +74,8 @@ export default {
       this.$emit("choose", index);
     },
     scrollToY(index) {
-      this.$refs.scroll.scrollTo(0, this.topList[index], 100);
+      this.scrollYVal = -this.topList[index]
+      //this.$refs.scroll.scrollTo(0, this.topList[index], 100);
     }
   }
 };

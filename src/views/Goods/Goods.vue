@@ -1,20 +1,15 @@
 <template>
   <div class="goods">
-    <div class="head">
       <GoodsName class="left-wrapper" :goods="goods" @choose="jump" ref="goods"></GoodsName>
       <FoodName ref="food" class="right-wrapper" :goods="goods" @choose="chooseGoodsName" @emit-food="setFood"></FoodName>
-    </div>
-    <!-- <ShopCart class="foot" :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice" :food="foodList"></ShopCart> -->
   </div>
 </template>
 
 <script>
 import GoodsName from "@/components/goodsName/GoodsName.vue";
 import FoodName from "@/components/foodName/FoodName.vue";
-// import ShopCart from "@/components/ShopCart/ShopCart.vue";
 export default {
   components: {
-    // ShopCart,
     GoodsName,
     FoodName
   },
