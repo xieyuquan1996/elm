@@ -17,33 +17,6 @@ const routes = [{
     {
         path: '/index',
         name: 'index',
-        component: () =>
-            import ('../views/Index.vue'),
-        children: [{
-                path: '/goods',
-                name: 'Goods',
-                component: () =>
-                    import ('../views/Goods/Goods.vue')
-            },
-            {
-                path: '/ratings',
-                name: 'Ratings',
-                component: () =>
-                    import ('../views/Ratings/Ratings.vue')
-            },
-            {
-                path: '/seller',
-                name: 'Seller',
-                component: () =>
-                    import ('../views/Seller/Seller.vue')
-            },
-        ]
-    },
-    {
-        path: "/orderList",
-        name: 'orderList',
-        component: () =>
-            import ('../views/orderList/OrderList.vue')
     },
     {
         path: "/map",
