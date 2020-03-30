@@ -206,7 +206,7 @@ export default {
       this.$router.go(-1);
     },
     placeOrder() {
-      alert("下单成功");
+      this.$store.dispatch("setShowData", "下单成功");
       this.$router.push({ path: "/" });
       this.$store.commit("setSellFood", []);
     }

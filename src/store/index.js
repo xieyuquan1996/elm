@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        showData: '',
         city: '北京',
         address: {},
         token: '',
@@ -17,6 +18,9 @@ export default new Vuex.Store({
         goods: []
     },
     mutations: {
+        setShowData(state, val) {
+            state.showData = val
+        },
         setCity(state, val) {
             state.city = val
         },
@@ -55,6 +59,12 @@ export default new Vuex.Store({
         }
     },
     actions: {
+        setShowData({ commit }, val){
+            commit('setShowData', val)
+            setTimeout(() => {
+                commit('setShowData', '')
+            }, 1000)
+        },
         setLocation({ commit }) {
             // eslint-disable-next-line no-undef
             new AMap.Map("iCenter").plugin("AMap.Geolocation", function () {

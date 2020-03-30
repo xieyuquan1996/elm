@@ -75,13 +75,21 @@ export default {
         this.$API.addAddress(this.address).then(data => {
           if (data.data.data.code) {
             that.close();
+          } else {
+            that.$store.dispatch("setShowData", "新增地址失败，请稍后重试!");
           }
+        }).catch(() => {
+          that.$store.dispatch("setShowData", "新增地址失败，请稍后重试!");
         });
       } else {
         this.$API.saveAddress(this.address).then(data => {
           if (data.data.data.code) {
             that.close();
+          } else {
+            that.$store.dispatch("setShowData", "修改地址失败，请稍后重试!");
           }
+        }).catch(() => {
+          that.$store.dispatch("setShowData", "修改地址失败，请稍后重试!");
         });
       }
     },
@@ -90,7 +98,11 @@ export default {
       this.$API.deleteAddress(this.address.id).then(data => {
         if (data.data.data.code) {
           that.close();
+        } else {
+          that.$store.dispatch("setShowData", "删除地址失败，请稍后重试!");
         }
+      }).catch(() => {
+        that.$store.dispatch("setShowData", "删除地址失败，请稍后重试!");
       });
     },
     back(){

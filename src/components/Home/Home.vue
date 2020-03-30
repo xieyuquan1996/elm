@@ -11,7 +11,7 @@
         </span>
       </div>
       <transition>
-        <div class="right-wrapper">
+        <div class="right-wrapper" @click="search">
           <div class="content"></div>
         </div>
       </transition>
@@ -27,56 +27,15 @@
       </div>
       <div class="kingkong-parent"></div>
     </div>
-    <div class="footer">
-      <div class="sticky-wrapper">
-        <div class="tittle-wrapper">附近商家</div>
-        <div class="search-box">
-          <ul class="search-content">
-            <li v-for="item of searchList" :key="item.name" class="content">
-              {{item.name}}
-              <i v-if="item.icon" :class="item.icon"></i>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <ul class="shop-wrapper">
-        <li
-          v-for="shop of shopList"
-          :key="shop.shopId"
-          class="shop-content"
-          @click="chooseShop(shop.shopId)"
-        >
-          <div class="shop-left">
-            <img :src="shop.avatar" class="image" />
-          </div>
-          <div class="shop-right">
-            <div class="shop-right-top">{{shop.name}}</div>
-            <div class="shop-right-center">
-              <div class="sorce">
-                <Star :score="shop.score" :starStyle="starStyle" class="start"></Star>
-                <span>{{shop.score}}</span>
-              </div>
-              <div class="distance">
-                <span>{{shop.deliveryTime}}分钟 |</span>
-                <span>{{shop.distance}}</span>
-              </div>
-            </div>
-            <div class="shop-right-bottom">
-              <span>起送￥{{shop.minPrice}}</span> |
-              <span>配送￥{{shop.deliveryPrice}}</span>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <ShopList class="footer"></ShopList>
   </div>
 </template>
 
 <script>
-import Star from "@/components/star/Star.vue";
+import ShopList from '@/components/ShopList/ShopList.vue'
 export default {
   components: {
-    Star
+    ShopList
   },
   data() {
     return {
@@ -202,23 +161,6 @@ export default {
           name: "快食简餐"
         }
       ],
-      searchList: [
-        {
-          name: "综合排序",
-          icon: "icon-arrow-down"
-        },
-        {
-          name: "销量最高"
-        },
-        {
-          name: "距离最近"
-        },
-        {
-          name: "筛选",
-          icon: "icon-screening"
-        }
-      ],
-      shopList: [],
       starStyle: {
         height: ".266667rem",
         width: ".266667rem",
@@ -249,21 +191,12 @@ export default {
       return "";
     }
   },
-  created() {
-    const that = this;
-    this.$API.getShopList().then(data => {
-      if (data.data.data) {
-        that.shopList = data.data.data;
-      }
-    });
-  },
   methods: {
     clickAddress() {
       this.$router.push({ name: "map" });
     },
-    chooseShop(shopId) {
-      this.$store.commit("setShopId", shopId);
-      this.$router.push({ name: "index" });
+    search(){
+      this.$router.push({name: 'search'})
     }
   }
 };

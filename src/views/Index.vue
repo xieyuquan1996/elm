@@ -46,9 +46,15 @@ export default {
     const that = this;
     const shopId = this.$store.state.shopId;
     that.$API.getSeller(shopId).then(data => {
-      if (data.status == 200) {
+      if (data.status == 200 && data.data.data) {
         that.$store.commit("setSeller", data.data.data);
+      } else {
+        that.$store.dispatch("setShowData", "请稍后重试!");
+        that.$router.push({name: 'home'})
       }
+    }).catch(() => {
+      that.$store.dispatch("setShowData", "请稍后重试!");
+      that.$router.push({name: 'home'})
     });
   },
   methods: {

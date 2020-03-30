@@ -1,12 +1,16 @@
 <template>
   <div class="app">
     <router-view class="contain" />
+    <Showinfo class="show-info" v-if="showData!=''"></Showinfo>
   </div>
 </template>
 
 <script>
 import { getLocalStorage } from "@/serve/localstorage";
+import Showinfo from './components/ShowInfo/ShowInfo'
+import { mapState } from 'vuex'
 export default {
+  components: {Showinfo},
   created() {
     if (!this.$store.token) {
       const token = getLocalStorage("token");
@@ -15,12 +19,22 @@ export default {
       }
     }
     this.$store.dispatch("setLocation");
-  }
+  },
+  computed: 
+  mapState({
+    showData: 'showData'
+  })
 };
 </script>
 <style lang="stylus" scoped>
 .app {
   height: 100%;
+
+  .contain {
+    position relative
+    height 100%
+    width 100%
+  }
 
   .foot {
     position: fixed;
@@ -29,6 +43,15 @@ export default {
     height: 1.28rem;
     bottom: 0;
     background-color: #141d27;
+  }
+
+  .show-info {
+    position absolute
+    top 0
+    bottom 0
+    left 0
+    right 0
+    z-index 100
   }
 }
 </style>

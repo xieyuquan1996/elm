@@ -70,7 +70,11 @@ export default {
       if (data.data.data) {
         that.addressList = data.data.data.addressList;
         that.addressListOver = data.data.data.addressListOver;
+      } else {
+        that.$store.dispatch("setShowData", "请稍后重试!");
       }
+    }).catch(() => {
+      that.$store.dispatch("setShowData", "请稍后重试!");
     });
   },
   methods: {

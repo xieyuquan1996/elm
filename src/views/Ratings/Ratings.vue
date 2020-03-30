@@ -95,7 +95,13 @@ export default {
     const that = this;
     const shopId = this.$store.state.shopId;
     this.$API.getRatings(shopId).then(data => {
-      that.ratings = data.data.data;
+      if(data.data.data){
+        that.ratings = data.data.data;
+      } else {
+        that.$store.dispatch("setShowData", "请稍后重试!");
+      }
+    }).catch(() => {
+      that.$store.dispatch("setShowData", "请稍后重试!");
     });
   },
   components: {

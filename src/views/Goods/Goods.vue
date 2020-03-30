@@ -25,7 +25,13 @@ export default {
       this.$API.getGoods(shopId).then(data => {
         if(data.data.data){
           that.$store.commit("setGoods", data.data.data)
+        } else {
+          that.$store.dispatch("setShowData", "请稍后重试!");
+          that.$router.push({name: 'home'})
         }
+      }).catch(() => {
+        that.$store.dispatch("setShowData", "请稍后重试!");
+        that.$router.push({name: 'home'})
       })
     }
   },

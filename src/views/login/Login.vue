@@ -25,7 +25,7 @@
 const PHONE_REG = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
 const VERIFY = "发送验证码";
 const TIME_COUNT = 60;
-import { setLocalStorage } from '@/serve/localstorage.js'
+import { setLocalStorage } from "@/serve/localstorage.js";
 export default {
   data() {
     return {
@@ -39,8 +39,7 @@ export default {
       timeCount: TIME_COUNT
     };
   },
-  created(){
-  },
+  created() {},
   computed: {
     isSengVerify() {
       return PHONE_REG.test(this.account);
@@ -55,36 +54,43 @@ export default {
   methods: {
     getVerify() {
       if (this.isSengVerify && this.isTimeRun) {
-        const that = this
+        const that = this;
         this.$API.getVerityCode(this.account).then(data => {
-          console.log(data)
-          that.timerVariable = setInterval(() => {
-            that.verify = that.timeCount + "s";
-            that.timeCount--;
-          }, 1000);
-        })
-        
+          if (data.data.data) {
+            that.timerVariable = setInterval(() => {
+              that.verify = that.timeCouSnt + "s";
+              that.timeCount--;
+            }, 1000);
+            that.$store.dispatch("setShowData", "验证码发送成功");
+          } else{
+            that.$store.dispatch("setShowData", "验证码发送失败");
+          }
+        });
       }
     },
     login() {
       if (this.isLogin && this.isSengVerify) {
-        const that = this
-        this.$API.login(this.account, this.pwd).then(data => {
-          const token = data.data.data.token
-          if(token){
-            setLocalStorage("token", token);
-            that.$store.commit('setToken', token)
-            // 是不是由其他的页面跳转到登录页，不是登录后跳转到首页
-            const router = {name: 'index'}
-            that.$router.push(router)
-          } else {
-            console.log('登录失败！')
-          }
-        }).catch(err => {
-          console.log(err)
-        })
+        const that = this;
+        this.$API
+          .login(this.account, this.pwd)
+          .then(data => {
+            const token = data.data.data.token;
+            if (token) {
+              setLocalStorage("token", token);
+              that.$store.commit("setToken", token);
+              // 是不是由其他的页面跳转到登录页，不是登录后跳转到首页
+              const router = { name: "index" };
+              that.$router.push(router);
+              that.$store.dispatch("setShowData", "登录成功");
+            } else {
+              that.$store.dispatch("setShowData", "登录失败");
+            }
+          })
+          .catch(() => {
+            that.$store.dispatch("setShowData", "登录失败");
+          });
         // 清除定时器
-        this.timeCount = -1
+        this.timeCount = -1;
       }
     }
   },
