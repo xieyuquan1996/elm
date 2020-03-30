@@ -7,7 +7,6 @@ export default new Vuex.Store({
     state: {
         city: '北京',
         address: {},
-        preRouter: {},
         token: '',
         shopId: 26,
         seller: {},
@@ -23,9 +22,6 @@ export default new Vuex.Store({
         },
         setAddress(state, val) {
             state.address = val
-        },
-        setPreRouter(state, val) {
-            state.preRouter = val
         },
         setToken(state, val) {
             state.token = val
