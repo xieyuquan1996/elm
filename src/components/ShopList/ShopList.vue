@@ -1,7 +1,7 @@
 <template>
   <div class="shop-list">
     <div class="sticky-wrapper" v-if="shopList.length>0">
-      <div class="tittle-wrapper">附近商家</div>
+      <div class="tittle-wrapper" v-if="keyword==''">附近商家</div>
       <div class="search-box">
         <ul class="search-content">
           <li v-for="item of searchList" :key="item.name" class="content">
@@ -40,7 +40,7 @@
         </div>
       </li>
     </ul>
-    <div v-if="!shopList||shopList.length==0" class="no-found">找不到相关的商店</div>
+    <div v-if="show404&&(!shopList||shopList.length==0)" class="no-found">找不到相关的商店</div>
   </div>
 </template>
 
@@ -58,6 +58,7 @@ export default {
   },
   data() {
     return {
+      show404: false,
       searchList: [
         {
           name: "综合排序",
@@ -92,6 +93,7 @@ export default {
         } else {
           that.$store.dispatch("setShowData", "请稍后重试!");
         }
+        that.show404 = true
       })
       .catch(() => {
         that.$store.dispatch("setShowData", "请稍后重试!");

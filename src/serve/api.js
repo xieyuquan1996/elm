@@ -1,7 +1,7 @@
 const axios = require('axios')
 import store from '../store/index.js'
 
-import {getLocalStorage} from './localstorage'
+import { getLocalStorage } from './localstorage'
 
 const instance = axios.create({
     "Content-Type": "application/json; charset=UTF-8"
@@ -10,8 +10,8 @@ const instance = axios.create({
 //http request 拦截器 在发送请求之前做些什么
 let request = function (config) {
     const token = store.token || getLocalStorage("token")
-    if(token){
-        Object.assign(config.headers.common, {"Authorization": token})
+    if (token) {
+        Object.assign(config.headers.common, { "Authorization": token })
     }
     // 在发送请求之前做些什么
     store.commit('setLoading', 1)
@@ -50,16 +50,16 @@ const data = require('./data.json')
 
 
 // 根据经纬度获取到现在可能的位置，因为是选周边最近的好位置
-function getNowLocation(val){
+function getNowLocation(val) {
     const data = {
-        key:'1c44f767c5d319c1dee50f3d45dcc0b8',
-        radius:'1000',
-        extensions:'all',
-        batch:'false',
-        roadlevel:'0'
-      }
+        key: '1c44f767c5d319c1dee50f3d45dcc0b8',
+        radius: '1000',
+        extensions: 'all',
+        batch: 'false',
+        roadlevel: '0'
+    }
     data.location = val
-    return instance.get('/v3/geocode/regeo',{params:data})
+    return instance.get('/v3/geocode/regeo', { params: data })
 }
 
 function getSeller(shopId) {
@@ -79,23 +79,39 @@ function getRatingsByFoodId(foodId) {
     return instance.get(`/api/ratings/foodId/${foodId}`)
 }
 
-function getShopList() {
+function getShopList(val) {
+    if (val) {
+        const params = {
+            keyword: val
+        }
+        return instance.get(`/api/shop/keyword`, { params: params })
+    }
     return instance.get(`/api/shop/place/`)
 }
 
-function getVerityCode(phone){
+function getShopListGroup(val) {
+    if (val) {
+
+        const params = {
+            keyword: val
+        }
+        return instance.get(`/api/shop/group/keyword`, { params: params })
+    }
+}
+
+function getVerityCode(phone) {
     return instance.get(`/api/user/verityCode/${phone}`)
 }
 
-function getAddress(shopId){
+function getAddress(shopId) {
     return instance.get(`/api/address/get/${shopId}`)
 }
 
-function getAddressList(){
+function getAddressList() {
     return instance.get(`/api/address/get`)
 }
 // 根据关键字搜索地区
-function getPlaceText(keywords, city){
+function getPlaceText(keywords, city) {
     let param = {
         extensions: 'all',
         key: '1c44f767c5d319c1dee50f3d45dcc0b8',
@@ -105,52 +121,52 @@ function getPlaceText(keywords, city){
         city: city,
         keywords: keywords
     }
-    return instance.get('/v3/place/text', {params:param})
+    return instance.get('/v3/place/text', { params: param })
 }
 
 // 附近的位置
-function getPlaceAround(location){
+function getPlaceAround(location) {
     let param = {
         key: '1c44f767c5d319c1dee50f3d45dcc0b8',
         location: location,
         output: 'josn'
     }
-    return instance.get('/v3/place/around', {params:param})
+    return instance.get('/v3/place/around', { params: param })
 }
 
-function saveAddress(address){
+function saveAddress(address) {
     let param = new URLSearchParams()
-    for(const key in address){
+    for (const key in address) {
         param.append(key, address[key])
     }
-    return instance.post(`/api/address/update`,param)
+    return instance.post(`/api/address/update`, param)
 }
 
-function addAddress(address){
+function addAddress(address) {
     let param = new URLSearchParams()
-    for(const key in address){
+    for (const key in address) {
         param.append(key, address[key])
     }
-    return instance.post(`/api/address/add`,param)
+    return instance.post(`/api/address/add`, param)
 }
 
-function deleteAddress(id){
+function deleteAddress(id) {
     let param = new URLSearchParams()
-    param.append('id',id)
-    return instance.post(`/api/address/delete`,param)
+    param.append('id', id)
+    return instance.post(`/api/address/delete`, param)
 }
 
 function login(phone, code) {
     let param = new URLSearchParams()
-    param.append('phone',phone)
+    param.append('phone', phone)
     param.append('code', code)
-    return instance.post(`/api/user/verity`,param)
+    return instance.post(`/api/user/verity`, param)
 }
 
 function validToken() {
     let param = new URLSearchParams()
-    param.append('uuid',store.token || getLocalStorage('token'))
-    return instance.post(`/api/token/valid`,param)
+    param.append('uuid', store.token || getLocalStorage('token'))
+    return instance.post(`/api/token/valid`, param)
 }
 
 /**
@@ -193,5 +209,6 @@ export const API = {
     getAddressList,
     getNowLocation,
     getPlaceText,
-    getPlaceAround
+    getPlaceAround,
+    getShopListGroup
 }
