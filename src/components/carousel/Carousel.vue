@@ -1,17 +1,11 @@
 <template>
-  <Scroll :scrollX="true">
-    <div class="content">
-      <img class="img" v-for="img of imgs" :key="img" :src="img">
-    </div>
-  </Scroll>
+  <div class="content">
+    <img class="img" v-for="img of imgs" :key="img" :src="img">
+  </div>
 </template>
 
 <script>
-import Scroll from "@/components/scroll/Scroll.vue";
 export default {
-components:{
-  Scroll
-},
 props:['imgs']
 }
 </script>
@@ -20,6 +14,7 @@ props:['imgs']
 .content
   width 100%
   white-space nowrap
+  overflow-x scroll
   .img
     width 3.2rem
     height 2.4rem
