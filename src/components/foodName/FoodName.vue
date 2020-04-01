@@ -83,6 +83,7 @@ export default {
           this.sellGoogs = []
         }
         this.sellGoogs.push({
+          foodId: selectFood.foodId,
           name: selectFood.name,
           price: selectFood.price,
           number: 1,

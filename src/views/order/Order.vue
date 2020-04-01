@@ -102,10 +102,15 @@
             </div>
           </div>
           <div class="content-height" v-if="invoice">
-            <input class="my-input" type="text" placeholder="请填写个人或公司名称" />
+            <input class="my-input" type="text" placeholder="请填写个人或公司名称" v-model="companyName" />
           </div>
           <div class="content-height" v-if="invoice">
-            <input class="my-input" type="text" placeholder="请填写纳税人识别号(选填)" />
+            <input
+              class="my-input"
+              type="text"
+              placeholder="请填写纳税人识别号(选填)"
+              v-model="identificationNumber"
+            />
           </div>
         </div>
         <div class="other">
@@ -139,6 +144,8 @@ export default {
   },
   data() {
     return {
+      companyName: "",
+      identificationNumber: "",
       note: "",
       tablewareNum: "",
       showTableware: false,
@@ -206,9 +213,32 @@ export default {
       this.$router.go(-1);
     },
     placeOrder() {
-      this.$store.dispatch("setShowData", "下单成功");
-      this.$router.push({ path: "/" });
-      this.$store.commit("setSellFood", []);
+      const that = this;
+      const params = {
+        foods: that.sellFood,
+        companyName: that.companyName,
+        identificationNumber: that.identificationNumber,
+        note: that.note,
+        tablewareNum: that.tablewareNum,
+        addressId: that.address.id,
+        shopId: that.seller.shopId
+      };
+      if (that.sellFood.length > 0 && that.address.id) {
+        that.$API
+          .addOrder(params)
+          .then(data => {
+            if (data.data.data) {
+              that.$store.dispatch("setShowData", "下单成功");
+              that.$router.push({ path: "/" });
+              that.$store.commit("setSellFood", []);
+            } else {
+              that.$store.dispatch("setShowData", "下单失败");
+            }
+          })
+          .catch(() => {
+            that.$store.dispatch("setShowData", "下单失败");
+          });
+      }
     }
   }
 };

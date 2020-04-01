@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <component :is="currentComponent">
+    <component :is="currentComponent" class="head-wrapper">
     </component>
     <div class="bottom-wrapper">
       <div

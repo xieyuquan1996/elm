@@ -164,9 +164,23 @@ function login(phone, code) {
 }
 
 function validToken() {
+    return instance.post(`/api/token/valid`)
+}
+
+/**
+ * 下单
+ * @param {*} val 
+ */
+function addOrder(val) {
     let param = new URLSearchParams()
-    param.append('uuid', store.token || getLocalStorage('token'))
-    return instance.post(`/api/token/valid`, param)
+    for(let key in val){
+        param.append(key, val[key])
+    }
+    return instance.post(`/api/order/add`, val)
+}
+
+function getOrder() {
+    return instance.get(`/api/order/get`)
 }
 
 /**
@@ -210,5 +224,7 @@ export const API = {
     getNowLocation,
     getPlaceText,
     getPlaceAround,
-    getShopListGroup
+    getShopListGroup,
+    addOrder,
+    getOrder
 }

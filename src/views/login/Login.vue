@@ -58,7 +58,7 @@ export default {
         this.$API.getVerityCode(this.account).then(data => {
           if (data.data.data) {
             that.timerVariable = setInterval(() => {
-              that.verify = that.timeCouSnt + "s";
+              that.verify = that.timeCount + "s";
               that.timeCount--;
             }, 1000);
             that.$store.dispatch("setShowData", "验证码发送成功");
