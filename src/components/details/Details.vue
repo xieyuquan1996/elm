@@ -2,7 +2,7 @@
   <div class="details">
     <Tab :tab-data="tabData" class="tab" @on-click='jump'></Tab>
     <transition name="fade">
-      <component :is="componentName"></component>
+      <component :is="componentName" class="contain"></component>
     </transition>
   </div>
 </template>

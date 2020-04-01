@@ -90,9 +90,9 @@ export default {
   .top-wrapper
     flex-grow: 1;
     flex-shrink: 1;
-    overflow auto
+    overflow scroll
     .details
-      overflow: auto;
+      overflow: scroll;
 
   .fade-enter-active, .fade-leave-active {
     transition: opacity 0.8s;

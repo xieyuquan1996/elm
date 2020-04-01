@@ -20,6 +20,14 @@ module.exports = {
                     '^/api': '/api',//重写,
                 }
             },
+            '/order':{
+                target: 'http://localhost:9401/',//后端接口地址
+                secure: true, // 如果是https接口，需要配置这个参数
+                changeOrigin: true,//是否允许跨越
+                pathRewrite: {
+                    '^/order': '/order',//重写,
+                }
+            },
             '/goods':{
                 target: 'http://localhost:9527/',//后端接口地址
                 secure: true, // 如果是https接口，需要配置这个参数
