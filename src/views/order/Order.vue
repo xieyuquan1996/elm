@@ -214,6 +214,15 @@ export default {
     },
     placeOrder() {
       const that = this;
+      if (!that.address.id) {
+        that.$store.dispatch("setShowData", "地址不能为空");
+        return;
+      }
+      if (that.sellFood.length > 0) {
+        that.$store.dispatch("setShowData", "商品不能为空");
+        return;
+      }
+      // 构造请求的参数
       const params = {
         foods: that.sellFood,
         companyName: that.companyName,
@@ -223,22 +232,21 @@ export default {
         addressId: that.address.id,
         shopId: that.seller.shopId
       };
-      if (that.sellFood.length > 0 && that.address.id) {
-        that.$API
-          .addOrder(params)
-          .then(data => {
-            if (data.data.data) {
-              that.$store.dispatch("setShowData", "下单成功");
-              that.$router.push({ path: "/" });
-              that.$store.commit("setSellFood", []);
-            } else {
-              that.$store.dispatch("setShowData", "下单失败");
-            }
-          })
-          .catch(() => {
+      that.$API
+        .addOrder(params)
+        .then(data => {
+          if (data.data.data) {
+            that.$store.dispatch("setShowData", "下单成功");
+            that.$router.push({ path: "/" });
+            // 初始化选择的商品
+            that.$store.commit("setSellFood", []);
+          } else {
             that.$store.dispatch("setShowData", "下单失败");
-          });
-      }
+          }
+        })
+        .catch(() => {
+          that.$store.dispatch("setShowData", "下单失败");
+        });
     }
   }
 };
