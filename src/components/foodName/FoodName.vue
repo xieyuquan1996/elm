@@ -41,6 +41,8 @@
 
 <script>
 import Scroll from "@/components/scroll/Scroll.vue";
+import { createNamespacedHelpers } from 'vuex'
+const { mapMutations } = createNamespacedHelpers('home')
 export default {
   components: {
     Scroll
@@ -48,7 +50,7 @@ export default {
   props: ['goods'],
   data() {
     return {
-      sellGoogs: this.$store.state.sellFood[this.$store.state.shopId]
+      sellGoogs: this.$store.state.home.sellFood[this.$store.state.home.shopId]
     };
   },
   computed: {
@@ -93,7 +95,7 @@ export default {
       this.emitFood()
     },
     emitFood(){
-      this.$store.commit('setSellFood', this.sellGoogs)
+      this.setSellFood( this.sellGoogs)
       this.$emit('emit-food', this.sellGoogs)
     },
     decrease(name) {
@@ -126,8 +128,11 @@ export default {
     },
     jumpInfo(val){
       this.$router.push({path: '/info'})
-      this.$store.commit('setFood', val)
-    }
+      this.setFood(val)
+    },
+    ...mapMutations([
+      'setFood', 'setSellFood'
+    ])
   }
 };
 </script>

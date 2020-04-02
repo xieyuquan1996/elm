@@ -7,23 +7,29 @@
 
 <script>
 import { getLocalStorage } from "@/serve/localstorage";
-import Showinfo from './components/ShowInfo/ShowInfo'
-import { mapState } from 'vuex'
+import Showinfo from "./components/ShowInfo/ShowInfo";
+import { createNamespacedHelpers } from "vuex";
+const { mapState, mapMutations, mapActions } = createNamespacedHelpers("home");
 export default {
-  components: {Showinfo},
+  components: { Showinfo },
   created() {
     if (!this.$store.token) {
       const token = getLocalStorage("token");
       if (token) {
-        this.$store.commit("setToken", token);
+        this.setToken(token);
       }
     }
-    this.$store.dispatch("setLocation");
+    this.setLocation();
   },
-  computed: 
-  mapState({
-    showData: 'showData'
-  })
+  computed: {
+    ...mapState({
+      showData: "showData"
+    })
+  },
+  methods: {
+    ...mapMutations(["setToken"]),
+    ...mapActions(["setLocation"])
+  }
 };
 </script>
 <style lang="stylus" scoped>
@@ -31,9 +37,9 @@ export default {
   height: 100%;
 
   .contain {
-    position relative
-    height 100%
-    width 100%
+    position: relative;
+    height: 100%;
+    width: 100%;
   }
 
   .foot {
@@ -46,12 +52,12 @@ export default {
   }
 
   .show-info {
-    position absolute
-    top 0
-    bottom 0
-    left 0
-    right 0
-    z-index 100
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
   }
 }
 </style>

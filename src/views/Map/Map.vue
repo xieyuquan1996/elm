@@ -5,6 +5,9 @@
   </div>
 </template>
 <script>
+
+import { createNamespacedHelpers } from 'vuex'
+const { mapMutations } = createNamespacedHelpers('home')
 export default {
   data() {
     return {
@@ -58,13 +61,14 @@ export default {
           that.address.address = data.data.regeocode.pois[0].name
           that.address.latitude = e.lnglat.lat//维度
           that.address.longitude = e.lnglat.lng //经度
-        that.address =that.$store.state.address? Object.assign(that.$store.state.address,that.address): that.address
-        that.$store.commit('setAddress', that.address)
+        that.address =that.$store.state.home.address? Object.assign(that.$store.state.home.address,that.address): that.address
+        that.setAddress(that.address)
         that.close()
       });
     });
   },
   methods: {
+    ...mapMutations(['setAddress']),
       close(){
           this.$router.go(-1)
       }

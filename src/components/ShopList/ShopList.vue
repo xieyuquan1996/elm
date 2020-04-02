@@ -45,6 +45,8 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex'
+const { mapMutations,mapActions } = createNamespacedHelpers('home')
 import Star from "@/components/star/Star.vue";
 export default {
   props: {
@@ -91,19 +93,21 @@ export default {
         if (data.data.data) {
           that.shopList = data.data.data;
         } else {
-          that.$store.dispatch("setShowData", "请稍后重试!");
+          that.setShowData( "请稍后重试!");
         }
         that.show404 = true
       })
       .catch(() => {
-        that.$store.dispatch("setShowData", "请稍后重试!");
+        that.setShowData( "请稍后重试!");
       });
   },
   methods: {
+    ...mapActions(['setShowData']),
     chooseShop(shopId) {
-      this.$store.commit("setShopId", shopId);
+      this.setShopId(shopId);
       this.$router.push({ name: "index" });
-    }
+    },
+    ...mapMutations(['setShopId'])
   }
 };
 </script>

@@ -91,7 +91,6 @@ function getShopList(val) {
 
 function getShopListGroup(val) {
     if (val) {
-
         const params = {
             keyword: val
         }
@@ -163,6 +162,13 @@ function login(phone, code) {
     return instance.post(`/api/user/verity`, param)
 }
 
+/**
+ * 获取到用户信息
+ */
+function getUser(){
+    return instance.post(`/api/user/get`)
+}
+
 function validToken() {
     return instance.post(`/api/token/valid`)
 }
@@ -204,7 +210,7 @@ function addGoods(shopId) {
     return instance.post(`/api/goods/add/${shopId}`, data.goods)
 }
 
-export const API = {
+export default {
     getSeller,
     getGoods,
     getRatings,
@@ -226,5 +232,6 @@ export const API = {
     getPlaceAround,
     getShopListGroup,
     addOrder,
-    getOrder
+    getOrder,
+    getUser
 }

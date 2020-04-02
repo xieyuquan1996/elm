@@ -185,8 +185,8 @@ export default {
       return res;
     },
     location() {
-      if (this.$store.state.address.address) {
-        return this.$store.state.address.address;
+      if (this.$store.state.home.address.address) {
+        return this.$store.state.home.address.address;
       }
       return "";
     }

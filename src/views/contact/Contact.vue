@@ -40,6 +40,8 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex'
+const { mapMutations,mapActions } = createNamespacedHelpers('home')
 export default {
   data() {
     return {
@@ -57,15 +59,16 @@ export default {
   },
   created() {
     const that = this;
-    if (that.$store.state.address) {
+    if (that.$route.params.address) {
       that.address = Object.assign(
         that.address,
-        that.$store.state.address
+        that.$store.state.home.address
       );
     }
     that.addStatue = this.address.id ? false : true;
   },
   methods: {
+    ...mapActions(['setShowData']),
     clickSex(sex) {
       this.address.sex = sex;
     },
@@ -76,20 +79,20 @@ export default {
           if (data.data.data.code) {
             that.close();
           } else {
-            that.$store.dispatch("setShowData", "新增地址失败，请稍后重试!");
+            that.setShowData( "新增地址失败，请稍后重试!");
           }
         }).catch(() => {
-          that.$store.dispatch("setShowData", "新增地址失败，请稍后重试!");
+          that.setShowData( "新增地址失败，请稍后重试!");
         });
       } else {
         this.$API.saveAddress(this.address).then(data => {
           if (data.data.data.code) {
             that.close();
           } else {
-            that.$store.dispatch("setShowData", "修改地址失败，请稍后重试!");
+            that.setShowData( "修改地址失败，请稍后重试!");
           }
         }).catch(() => {
-          that.$store.dispatch("setShowData", "修改地址失败，请稍后重试!");
+          that.setShowData( "修改地址失败，请稍后重试!");
         });
       }
     },
@@ -99,10 +102,10 @@ export default {
         if (data.data.data.code) {
           that.close();
         } else {
-          that.$store.dispatch("setShowData", "删除地址失败，请稍后重试!");
+          that.setShowData( "删除地址失败，请稍后重试!");
         }
       }).catch(() => {
-        that.$store.dispatch("setShowData", "删除地址失败，请稍后重试!");
+        that.setShowData( "删除地址失败，请稍后重试!");
       });
     },
     back(){
@@ -113,9 +116,12 @@ export default {
       this.$router.push({ name: "address" });
     },
     selectReceivingAddress() {
-      this.$store.commit("setAddress", this.address);
+      this.setAddress(this.address);
       this.$router.push({ name: "location" });
-    }
+    },
+    ...mapMutations([
+      'setAddress'
+    ])
   }
 };
 </script>

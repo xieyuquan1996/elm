@@ -32,6 +32,9 @@
 </template>
 
 <script>
+
+import { createNamespacedHelpers } from 'vuex'
+const { mapMutations } = createNamespacedHelpers('home')
 import { deleteLocalStorage } from "@/serve/localstorage";
 export default {
   data() {
@@ -59,7 +62,7 @@ export default {
   created() {
     const that = this;
     // 验证是否登录了
-    if (this.$store.state.token) {
+    if (this.$store.state.home.token) {
       this.$API
         .validToken()
         .then(data => {
@@ -80,6 +83,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['setShopId']),
     getOrders(that) {
       that.$API.getOrder().then(data => {
         if (data.data.data) {
@@ -92,7 +96,7 @@ export default {
       });
     },
     jumpShop(shopId) {
-      this.$store.commit("setShopId", shopId);
+      this.setShopId(shopId);
       this.$router.push({ name: "index" });
     },
     getStatus(index) {

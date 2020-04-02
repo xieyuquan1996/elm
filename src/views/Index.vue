@@ -21,6 +21,8 @@ import Details from "@/components/details/Details.vue";
 import More from "@/components/More/More.vue";
 import ShopCart from "@/components/ShopCart/ShopCart.vue";
 import Loading from "@/components/loading/Loading.vue";
+import { createNamespacedHelpers } from 'vuex'
+const { mapMutations, mapActions, mapState } = createNamespacedHelpers('home')
 export default {
   data() {
     return {
@@ -28,9 +30,7 @@ export default {
     };
   },
   computed: {
-    seller() {
-      return this.$store.state.seller;
-    },
+    ...mapState(['seller']),
     loading() {
       return this.$store.state.loading;
     }
@@ -44,20 +44,22 @@ export default {
   },
   created() {
     const that = this;
-    const shopId = this.$store.state.shopId;
+    const shopId = this.$store.state.home.shopId;
     that.$API.getSeller(shopId).then(data => {
       if (data.status == 200 && data.data.data) {
-        that.$store.commit("setSeller", data.data.data);
+        that.setSeller(data.data.data);
       } else {
-        that.$store.dispatch("setShowData", "请稍后重试!");
+        that.setShowData("请稍后重试!");
         that.$router.push({name: 'home'})
       }
     }).catch(() => {
-      that.$store.dispatch("setShowData", "请稍后重试!");
+      that.setShowData("请稍后重试!");
       that.$router.push({name: 'home'})
     });
   },
   methods: {
+    ...mapActions(['setShowData']),
+    ...mapMutations(['setSeller']),
     closeBack() {
       this.$router.push({ path: "/" });
     },

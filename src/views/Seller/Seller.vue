@@ -51,6 +51,9 @@
 import Star from "@/components/star/Star.vue";
 import Icon from '@/components/icon/Icon.vue'
 import Carousel from "@/components/carousel/Carousel.vue"
+
+import { createNamespacedHelpers } from 'vuex'
+const { mapMutations } = createNamespacedHelpers('home')
 export default {
   data() {
     return {};
@@ -86,16 +89,17 @@ export default {
       return this.isFavorite ? "已收藏" : "收藏";
     },
     isFavorite() {
-      return this.$store.state.isFavorite;
+      return this.$store.state.home.isFavorite;
     },
     seller() {
-      return this.$store.state.seller;
+      return this.$store.state.home.seller;
     }
   },
   methods: {
     clickFavorite(){
-      this.$store.commit('setIsFavorite', !this.isFavorite)
-    }
+      this.setIsFavorite(!this.isFavorite)
+    },
+    ...mapMutations(['setIsFavorite'])
   },
   components: {
     Star, Icon ,Carousel

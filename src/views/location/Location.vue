@@ -62,12 +62,14 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex'
+const { mapMutations} = createNamespacedHelpers('home')
 export default {
   data() {
     return {
       nowLocation: {},
       addressText: "",//文本框输入的内容
-      city: this.$store.state.city,
+      city: this.$store.state.home.city,
       addressList: [],
       moreAddress: 0,
       moreAddressList: [
@@ -87,8 +89,8 @@ export default {
   },
   created() {
     const that = this;
-    that.nowLocation = that.$store.state.address.address
-      ? that.$store.state.address
+    that.nowLocation = that.$store.state.home.address.address
+      ? that.$store.state.home.address
       : that.nowLocation;
     that.$API.getAddressList().then(data => {
       if (data.data.data.addressList) {
@@ -107,12 +109,13 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({setAddressModule:'setAddress'}),
     setAddress() {
       const that = this
       let location =
-        that.$store.state.address.longitude +
+        that.$store.state.home.address.longitude +
         "," +
-        that.$store.state.address.latitude;
+        that.$store.state.home.address.latitude;
       that.$API.getPlaceAround(location).then(data => {
         // 查询成功
         if (data.data.status == 1) {
@@ -143,10 +146,10 @@ export default {
     },
     selectAddress(address) {
       const that = this;
-      address = this.$store.state.address
-        ? Object.assign(that.$store.state.address, address)
+      address = this.$store.state.home.address
+        ? Object.assign(that.$store.state.home.address, address)
         : address;
-      this.$store.commit("setAddress", address);
+      this.setAddressModule(address);
       that.$router.go(-1);
     }
   },
@@ -154,7 +157,7 @@ export default {
     addressText(){
       const that = this
       if((+new Date()) - (+that.lastTime) > that.delayTime){
-        that.$API.getPlaceText(that.addressText,that.$store.state.city).then(data => {
+        that.$API.getPlaceText(that.addressText,that.$store.state.home.city).then(data => {
           // 查询成功
           if(data.data.status == 1){
             that.nearAddress = []

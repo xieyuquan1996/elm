@@ -50,6 +50,8 @@
 <script>
 import Scroll from "@/components/scroll/Scroll.vue";
 import MyHeader from "@/components/myHeader/MyHeader.vue";
+import { createNamespacedHelpers } from 'vuex'
+const { mapMutations,mapActions } = createNamespacedHelpers('home')
 export default {
   components: {
     MyHeader,
@@ -58,7 +60,7 @@ export default {
   data() {
     return {
       routerName: 'order',
-      selectAddress: this.$store.state.address,
+      selectAddress: this.$store.state.home.address,
       tittle: "地址列表",
       addressList: [],
       addressListOver: []
@@ -66,20 +68,22 @@ export default {
   },
   created() {
     const that = this;
-    this.$API.getAddress(this.$store.state.shopId).then(data => {
+    this.$API.getAddress(this.$store.state.home.shopId).then(data => {
       if (data.data.data) {
         that.addressList = data.data.data.addressList;
         that.addressListOver = data.data.data.addressListOver;
       } else {
-        that.$store.dispatch("setShowData", "请稍后重试!");
+        that.setShowData( "请稍后重试!");
       }
     }).catch(() => {
-      that.$store.dispatch("setShowData", "请稍后重试!");
+      that.setShowData( "请稍后重试!");
     });
   },
   methods: {
+    ...mapActions(['setShowData']),
+    ...mapMutations(['setAddress']),
     chooseAddress(address) {
-      this.$store.commit("setAddress", address);
+      this.setAddress(address);
       this.$router.push({name:'order'});
     },
     modify(address) {

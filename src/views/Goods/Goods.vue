@@ -8,6 +8,8 @@
 <script>
 import GoodsName from "@/components/goodsName/GoodsName.vue";
 import FoodName from "@/components/foodName/FoodName.vue";
+import { createNamespacedHelpers } from 'vuex'
+const { mapMutations,mapActions } = createNamespacedHelpers('home')
 export default {
   components: {
     GoodsName,
@@ -19,18 +21,18 @@ export default {
     };
   },
   created() {
-    if(this.$store.state.goods.length==0){
+    if(this.$store.state.home.goods.length==0){
       const that =this
-      const shopId = this.$store.state.shopId
+      const shopId = this.$store.state.home.shopId
       this.$API.getGoods(shopId).then(data => {
         if(data.data.data){
-          that.$store.commit("setGoods", data.data.data)
+          that.setGoods(data.data.data)
         } else {
-          that.$store.dispatch("setShowData", "请稍后重试!");
+          that.setShowData( "请稍后重试!");
           that.$router.push({name: 'home'})
         }
       }).catch(() => {
-        that.$store.dispatch("setShowData", "请稍后重试!");
+        that.setShowData( "请稍后重试!");
         that.$router.push({name: 'home'})
       })
     }
@@ -40,13 +42,14 @@ export default {
       return ["decrease", "discount", "special", "invoice", "guarantee"];
     },
     goods(){
-      return this.$store.state.goods
+      return this.$store.state.home.goods
     },
     seller(){
-      return this.$store.state.seller;
+      return this.$store.state.home.seller;
     }
   },
   methods: {
+    ...mapActions(['setShowData']),
     jump(index){
       this.$refs.food.scrollToY(index)
     },
@@ -55,7 +58,8 @@ export default {
     },
     setFood(val){
       this.foodList = val
-    }
+    },
+    ...mapMutations(['setGoods'])
   }
 };
 </script>

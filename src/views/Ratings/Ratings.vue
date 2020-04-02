@@ -82,6 +82,8 @@
 
 <script>
 import Star from "@/components/star/Star.vue";
+import { createNamespacedHelpers } from 'vuex'
+const { mapActions } = createNamespacedHelpers('home')
 export default {
   data() {
     return {
@@ -93,15 +95,15 @@ export default {
   },
   created() {
     const that = this;
-    const shopId = this.$store.state.shopId;
+    const shopId = this.$store.state.home.shopId;
     this.$API.getRatings(shopId).then(data => {
       if(data.data.data){
         that.ratings = data.data.data;
       } else {
-        that.$store.dispatch("setShowData", "请稍后重试!");
+        that.setShowData( "请稍后重试!");
       }
     }).catch(() => {
-      that.$store.dispatch("setShowData", "请稍后重试!");
+      that.setShowData( "请稍后重试!");
     });
   },
   components: {
@@ -109,7 +111,7 @@ export default {
   },
   computed: {
     seller() {
-      return this.$store.state.seller;
+      return this.$store.state.home.seller;
     },
     iconClass() {
       return ["icon-thumb_up", "icon-thumb_down"];
@@ -173,6 +175,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['setShowData']),
     chooseRating(val) {
       this.isAll = val - 1;
     },

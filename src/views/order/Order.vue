@@ -136,6 +136,8 @@ import MyHeader from "@/components/myHeader/MyHeader.vue";
 import Tableware from "@/components/Tableware/Tableware.vue";
 import Note from "@/components/Note/Note.vue";
 
+import { createNamespacedHelpers } from 'vuex'
+const { mapMutations,mapActions } = createNamespacedHelpers('home')
 export default {
   components: {
     MyHeader,
@@ -151,10 +153,10 @@ export default {
       showTableware: false,
       showNote: false,
       routerName: "index",
-      address: this.$store.state.address,
+      address: this.$store.state.home.address,
       tittle: "提交订单",
-      seller: this.$store.state.seller,
-      sellFood: this.$store.state.sellFood[this.$store.state.shopId],
+      seller: this.$store.state.home.seller,
+      sellFood: this.$store.state.home.sellFood[this.$store.state.home.shopId],
       invoice: false
     };
   },
@@ -176,6 +178,8 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['setShowData']),
+    ...mapMutations(['setSellFood']),
     closeWrapper() {
       this.closeNote();
       this.closeTableware();
@@ -215,11 +219,11 @@ export default {
     placeOrder() {
       const that = this;
       if (!that.address.id) {
-        that.$store.dispatch("setShowData", "地址不能为空");
+        that.setShowData( "地址不能为空");
         return;
       }
-      if (that.sellFood.length > 0) {
-        that.$store.dispatch("setShowData", "商品不能为空");
+      if (that.sellFood.length <= 0) {
+        that.setShowData( "商品不能为空");
         return;
       }
       // 构造请求的参数
@@ -236,16 +240,16 @@ export default {
         .addOrder(params)
         .then(data => {
           if (data.data.data) {
-            that.$store.dispatch("setShowData", "下单成功");
+            that.setShowData( "下单成功");
             that.$router.push({ path: "/" });
             // 初始化选择的商品
-            that.$store.commit("setSellFood", []);
+            that.setSellFood([]);
           } else {
-            that.$store.dispatch("setShowData", "下单失败");
+            that.setShowData( "下单失败");
           }
         })
         .catch(() => {
-          that.$store.dispatch("setShowData", "下单失败");
+          that.setShowData( "下单失败");
         });
     }
   }

@@ -24,13 +24,13 @@ export default {
   },
   computed: {
     deliveryPrice(){
-      return this.$store.state.seller.deliveryPrice
+      return this.$store.state.home.seller.deliveryPrice
     },
     minPrice(){
-      return this.$store.state.seller.minPrice
+      return this.$store.state.home.seller.minPrice
     },
     food(){
-      return this.$store.state.sellFood[this.$store.state.seller.shopId]
+      return this.$store.state.home.sellFood[this.$store.state.home.seller.shopId]
     },
     total() {
       let price = 0;
@@ -66,7 +66,7 @@ export default {
   methods: {
     pay(){
       if (this.text === '去结算') {
-        if(this.$store.state.token){
+        if(this.$store.state.home.token){
           this.$API.validToken().then(data => {
             if(!data.data.data.code){
               this.$store.token = null;

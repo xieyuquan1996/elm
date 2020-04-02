@@ -77,7 +77,7 @@ export default {
   },
   data() {
     return {
-      food: this.$store.state.food,
+      food: this.$store.state.home.food,
       datefmt: 'YYYY-mm-dd HH:MM',
       showContent: false,
       isAll: -1,
