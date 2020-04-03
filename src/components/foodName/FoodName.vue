@@ -95,7 +95,10 @@ export default {
       this.emitFood()
     },
     emitFood(){
-      this.setSellFood( this.sellGoogs)
+      this.setSellFood({
+        shopId: this.$store.state.home.shopId,
+        sellFood: this.sellGoogs
+      })
       this.$emit('emit-food', this.sellGoogs)
     },
     decrease(name) {
@@ -127,11 +130,10 @@ export default {
       this.$emit('choose', this.tittleTopList.length - 1)
     },
     jumpInfo(val){
-      this.$router.push({path: '/info'})
-      this.setFood(val)
+      this.$router.push({name: 'info', params: { food: val}})
     },
     ...mapMutations([
-      'setFood', 'setSellFood'
+      'setSellFood'
     ])
   }
 };

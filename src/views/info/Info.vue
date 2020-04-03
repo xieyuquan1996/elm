@@ -77,7 +77,7 @@ export default {
   },
   data() {
     return {
-      food: this.$store.state.home.food,
+      food: this.$route.params.food,
       datefmt: 'YYYY-mm-dd HH:MM',
       showContent: false,
       isAll: -1,

@@ -24,8 +24,8 @@
       </div>
       <div class="info-wrapper">
         <span class="statue-content">{{getStatus(item.orderStatus)}}</span>
-        <span class="again-contemt">再来一单</span>
-        <span class="delete-content">删除</span>
+        <span class="again-contemt" @click="again(item)">再来一单</span>
+        <span class="delete-content" @click="deleteOrder(item)">删除</span>
       </div>
     </li>
   </ul>
@@ -83,6 +83,27 @@ export default {
     }
   },
   methods: {
+    again(item){
+      const that = this
+      that.$API.getFoodsByOrderId(item.id).then(data => {
+        if(data.data.data){
+          // 跳转
+          that.$router.push({'name': 'order', params: {
+            seller: {
+              deliveryPrice:'',
+              shopId: '',
+              avatar: '',
+              name: ''
+            },
+            sellFood: data.data.data
+          }})
+        }
+      })
+      console.log('再来一单')
+    },
+    deleteOrder(){
+      console.log('删除订单')
+    },
     ...mapMutations(['setShopId']),
     getOrders(that) {
       that.$API.getOrder().then(data => {

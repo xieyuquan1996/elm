@@ -73,7 +73,10 @@ export default {
               deleteLocalStorage('token')
               this.$router.push({path: '/login'})
             } else {
-              this.$router.push({path: '/order'})
+              this.$router.push({name: 'order', params: {
+                seller: this.$store.state.home.seller,
+                sellFood: this.$store.state.home.sellFood[this.$store.state.home.shopId]
+              }})
             }
           }).catch(err => {
             console.log(err)

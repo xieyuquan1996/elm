@@ -155,10 +155,18 @@ export default {
       routerName: "index",
       address: this.$store.state.home.address,
       tittle: "提交订单",
-      seller: this.$store.state.home.seller,
-      sellFood: this.$store.state.home.sellFood[this.$store.state.home.shopId],
+      // 商家和选择了的商品应该通过router的params来的，用store不利与拆分
+      seller: this.$route.params.seller,
+      sellFood: this.$route.params.sellFood,
       invoice: false
     };
+  },
+  created(){
+    // 确保sellFood不为空
+    if(this.sellFood.length<1){
+      this.setShowData('商品不能为空')
+      this.$router.go(-1)
+    }
   },
   computed: {
     totalPrice() {
@@ -222,7 +230,7 @@ export default {
         that.setShowData( "地址不能为空");
         return;
       }
-      if (that.sellFood.length <= 0) {
+      if (that.sellFood.length < 1) {
         that.setShowData( "商品不能为空");
         return;
       }
@@ -243,7 +251,10 @@ export default {
             that.setShowData( "下单成功");
             that.$router.push({ path: "/" });
             // 初始化选择的商品
-            that.setSellFood([]);
+            that.setSellFood({
+              shopId: that.seller.shopId,
+              sellFood: []
+            });
           } else {
             that.setShowData( "下单失败");
           }

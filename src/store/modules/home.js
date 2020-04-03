@@ -41,7 +41,7 @@ const mutations = {
     state.food = val
   },
   setSellFood(state, val) {
-    Vue.set(state.sellFood, state.seller.shopId, val)
+    Vue.set(state.sellFood, val.shopId, val.sellFood)
   },
   setDeliveryPrice(state, val) {
     state.deliveryPrice = val
