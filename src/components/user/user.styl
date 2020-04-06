@@ -1,14 +1,34 @@
 .user
   position relative
   height 100%
+  font-size .373333rem /* 28/75 */
+  background: rgb(240, 240, 240);
   .user-content
-    display: flex
-    justify-content: center
-    .img
-      width: 40px
-      height 40px
-      border-radius: 50%
-  .common
-    margin: 0 30px
-    padding: 10px 0
-    border-bottom: 1px solid rgba(157,157,157,0.5)
+    padding: 10% 0 5%;
+    background url('//s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-prod/file:9096d347/78890a8f1859bc10152151fc64aff5cc.png')
+    background-size 100% 100%
+    .img-wrapper
+      margin auto 
+      border: 4px solid #ffe699;
+      border-radius: 100%;
+      width: 19.7333%
+      padding-top: 19.7333%
+      background: url(//s3plus.meituan.net/v1/mss_e2821d7f0cfe4ac1bf9202ecf9590e67/cdn-prod/file:9096d347/835c1ccacf724c558dc7e8247d7dc9d3.png) no-repeat
+      background-size 100% 100%
+    .user-name
+      font-size .426667rem /* 32/75 */
+      text-align center
+      white-space: nowrap;
+      max-width: 100%;
+      margin-top: .213333rem /* 16/75 */;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  .info-wrapper
+    background: rgb(255, 255, 255);
+    .common
+      margin: 0 .293333rem /* 22/75 */
+      padding: .266667rem /* 20/75 */ 0
+      line-height .533333rem /* 40/75 */
+      border-bottom: 1px solid rgba(157,157,157,0.5)
+      &:last-child
+        border-bottom: 0

@@ -27,7 +27,8 @@ const VERIFY = "发送验证码";
 const TIME_COUNT = 60;
 import { setLocalStorage } from "@/serve/localstorage.js";
 import { createNamespacedHelpers } from 'vuex'
-const { mapMutations,mapActions } = createNamespacedHelpers('home')
+const { mapActions } = createNamespacedHelpers('home')
+const { mapMutations } = createNamespacedHelpers('my')
 export default {
   data() {
     return {
@@ -60,14 +61,14 @@ export default {
       if (this.isSengVerify && this.isTimeRun) {
         const that = this;
         this.$API.getVerityCode(this.account).then(data => {
-          if (data.data.data) {
+          if (data.data.data.code) {
             that.timerVariable = setInterval(() => {
               that.verify = that.timeCount + "s";
               that.timeCount--;
             }, 1000);
-            that.setShowData( "验证码发送成功");
+            that.setShowData("验证码发送成功");
           } else{
-            that.setShowData( "验证码发送失败");
+            that.setShowData(data.data.message||"验证码发送失败");
           }
         });
       }

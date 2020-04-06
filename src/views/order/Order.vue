@@ -162,6 +162,12 @@ export default {
     };
   },
   created(){
+    if(!this.$route.params.seller){
+      this.seller = this.$store.state.home.seller
+    }
+    if(!this.$route.params.sellFood){
+      this.sellFood = this.$store.state.home.sellFood[this.$store.state.home.shopId]
+    }
     // 确保sellFood不为空
     if(this.sellFood.length<1){
       this.setShowData('商品不能为空')
@@ -226,7 +232,8 @@ export default {
     },
     placeOrder() {
       const that = this;
-      if (!that.address.id) {
+      debugger
+      if (!that.address.addressId) {
         that.setShowData( "地址不能为空");
         return;
       }
@@ -241,7 +248,7 @@ export default {
         identificationNumber: that.identificationNumber,
         note: that.note,
         tablewareNum: that.tablewareNum,
-        addressId: that.address.id,
+        addressId: that.address.addressId,
         shopId: that.seller.shopId
       };
       that.$API

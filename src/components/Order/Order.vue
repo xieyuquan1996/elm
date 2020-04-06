@@ -1,6 +1,6 @@
 <template>
   <ul class="Order">
-    <li class="order-wrapper" v-for="item of orderList" :key="item.orderId">
+    <li class="order-wrapper" v-for="(item,index) of orderList" :key="item.orderId">
       <div class="tittle-wrapper" @click="jumpShop(item.shopId)">
         <div class="avatar-wrapper">
           <img :src="item.avatar" class="avatar" />
@@ -14,8 +14,8 @@
       </div>
       <div class="food-wrapper">
         <p v-for="food of item.foodResults" :key="food.name" class="food-content">
-          <span>{{food.foodName}}</span>
-          <span class="food-count">X{{food.count}}</span>
+          <span>{{food.name}}</span>
+          <span class="food-count">X{{food.number}}</span>
         </p>
         <p class="time-total-wrapper">
           <span class="time-content">{{formatTime(item.orderTime)}}</span>
@@ -24,23 +24,22 @@
       </div>
       <div class="info-wrapper">
         <span class="statue-content">{{getStatus(item.orderStatus)}}</span>
-        <span class="again-contemt" @click="again(item)">再来一单</span>
-        <span class="delete-content" @click="deleteOrder(item)">删除</span>
+        <span class="again-contemt" @click.stop="again(item)">再来一单</span>
+        <span class="delete-content" @click="deleteOrder(item.orderId,index)">删除</span>
       </div>
     </li>
   </ul>
 </template>
 
 <script>
-
-import { createNamespacedHelpers } from 'vuex'
-const { mapMutations } = createNamespacedHelpers('home')
+import { createNamespacedHelpers } from "vuex";
+const { mapMutations, mapActions } = createNamespacedHelpers("home");
 import { deleteLocalStorage } from "@/serve/localstorage";
 export default {
   data() {
     return {
       orderList: [
-       /* {
+        /* {
           orderId: 1,
           shopId: 26,
           shopName: "CoCo都可(大悦城店)",
@@ -71,7 +70,7 @@ export default {
             deleteLocalStorage("token");
             that.$router.push({ path: "/login" });
           } else {
-            that.getOrders(that)
+            that.getOrders(that);
           }
         })
         .catch(err => {
@@ -83,28 +82,33 @@ export default {
     }
   },
   methods: {
-    again(item){
+    ...mapActions(['setShowData']),
+    again(item) {
+      const that = this;
+      that.setSeller({
+        deliveryPrice: item.deliveryPrice,
+        shopId: item.shopId,
+        avatar: item.avatar,
+        name: item.shopName
+      });
+      that.setSellFood({
+        shopId: item.shopId,
+        sellFood: item.foodResults
+      });
+      that.$router.push({ name: "order" });
+    },
+    deleteOrder(ordeerId, index) {
       const that = this
-      that.$API.getFoodsByOrderId(item.id).then(data => {
-        if(data.data.data){
-          // 跳转
-          that.$router.push({'name': 'order', params: {
-            seller: {
-              deliveryPrice:'',
-              shopId: '',
-              avatar: '',
-              name: ''
-            },
-            sellFood: data.data.data
-          }})
+      that.$API.removeOrder(ordeerId).then(data => {
+        if(data.data){
+          that.setShowData(data.data.message)
+          if(data.data.data){
+            that.orderList.splice(index,1)
+          }
         }
       })
-      console.log('再来一单')
     },
-    deleteOrder(){
-      console.log('删除订单')
-    },
-    ...mapMutations(['setShopId']),
+    ...mapMutations(["setShopId", "setSeller", "setSellFood"]),
     getOrders(that) {
       that.$API.getOrder().then(data => {
         if (data.data.data) {
@@ -117,6 +121,7 @@ export default {
       });
     },
     jumpShop(shopId) {
+      debugger
       this.setShopId(shopId);
       this.$router.push({ name: "index" });
     },

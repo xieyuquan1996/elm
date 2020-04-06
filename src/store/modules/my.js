@@ -3,12 +3,15 @@
 import API from '@/serve/api'
 
 const state = {
-  showData: '',
-  userName: '111',
-  avatar: '111'
+  userName: '',
+  token: '',
+  avatar: ''
 }
 
 const mutations = {
+  setToken(state, token){
+    state.token = token
+  },
   setUserName(state, userName){
     state.userName = userName
   },

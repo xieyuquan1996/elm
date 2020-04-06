@@ -9,11 +9,12 @@
 import { getLocalStorage } from "@/serve/localstorage";
 import Showinfo from "./components/ShowInfo/ShowInfo";
 import { createNamespacedHelpers } from "vuex";
-const { mapState, mapMutations, mapActions } = createNamespacedHelpers("home");
+const { mapState, mapActions } = createNamespacedHelpers("home");
+const { mapMutations  } = createNamespacedHelpers("my");
 export default {
   components: { Showinfo },
   created() {
-    if (!this.$store.token) {
+    if (!this.$store.state.my.token) {
       const token = getLocalStorage("token");
       if (token) {
         this.setToken(token);

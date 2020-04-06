@@ -3,8 +3,8 @@
     <MyHeader :tittle="tittle" :routerName="routerName" class="header-wrapper"></MyHeader>
     <Scroll class="address-wrapper">
       <div>
-        <div v-for="address of addressList" :key="address.id" class="address-correct">
-          <i v-if="selectAddress && address.id == selectAddress.id" class="icon-check_circle check"></i>
+        <div v-for="address of addressList" :key="address.addressId" class="address-correct">
+          <i v-if="selectAddress.addressId && address.addressId === selectAddress.addressId" class="icon-check_circle check"></i>
           <div class="address-content" @click="chooseAddress(address)">
             <div class="top-address">
               <div class="left-content">{{address.address}}</div>
@@ -24,7 +24,7 @@
             <i class="icon-location"></i>
             <div>超配送范围地址</div>
           </div>
-          <div v-for="address of addressListOver" :key="address.id" class="address-over">
+          <div v-for="address of addressListOver" :key="address.addressId" class="address-over">
             <div class="address-content">
               <div class="top-address">
                 <div class="left-content">{{address.address}}</div>

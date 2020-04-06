@@ -22,9 +22,10 @@
 <script>
 import Home from "@/components/Home/Home.vue";
 import Order from "@/components/Order/Order.vue";
+import User from "@/components/user/User.vue";
 export default {
   components: {
-    Home, Order
+    Home, Order,User
   },
   data() {
     return {
@@ -41,6 +42,11 @@ export default {
           name: "订单",
           icon: "icon-order",
           components: "Order"
+        },
+        {
+          name: "我的",
+          icon: "icon-myself",
+          components: "User"
         }
       ]
     };

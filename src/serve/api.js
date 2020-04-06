@@ -103,7 +103,7 @@ function getVerityCode(phone) {
 }
 
 function getAddress(shopId) {
-    return instance.get(`/api/address/get/${shopId}`)
+    return instance.get(`/api/address/shopId/${shopId}`)
 }
 
 function getAddressList() {
@@ -166,7 +166,11 @@ function login(phone, code) {
  * 获取到用户信息
  */
 function getUser(){
-    return instance.post(`/api/user/get`)
+    return instance.get(`/api/user/select`)
+}
+
+function logout(){
+    return instance.get(`/api/user/logout`)
 }
 
 function validToken() {
@@ -183,6 +187,10 @@ function addOrder(val) {
         param.append(key, val[key])
     }
     return instance.post(`/api/order/add`, val)
+}
+
+function removeOrder(val) {
+    return instance.get(`/api/order/delete/${val}`)
 }
 
 function getOrder() {
@@ -233,5 +241,7 @@ export default {
     getShopListGroup,
     addOrder,
     getOrder,
-    getUser
+    getUser,
+    removeOrder,
+    logout
 }
