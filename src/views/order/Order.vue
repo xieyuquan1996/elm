@@ -180,7 +180,7 @@ export default {
       this.sellFood.map(food => {
         sum += food.price * food.number;
       });
-      return sum + this.seller.deliveryPrice;
+      return sum + parseFloat(this.seller.deliveryPrice);
     },
     deliveryTimeFormat() {
       let time = new Date();
@@ -232,7 +232,6 @@ export default {
     },
     placeOrder() {
       const that = this;
-      debugger
       if (!that.address.addressId) {
         that.setShowData( "地址不能为空");
         return;

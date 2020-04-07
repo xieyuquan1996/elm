@@ -150,9 +150,7 @@ function addAddress(address) {
 }
 
 function deleteAddress(id) {
-    let param = new URLSearchParams()
-    param.append('id', id)
-    return instance.post(`/api/address/delete`, param)
+    return instance.post(`/api/address/delete/${id}`)
 }
 
 function login(phone, code) {

@@ -59,13 +59,18 @@ export default {
   },
   created() {
     const that = this;
-    if (that.$route.params.address) {
+    if (!that.$route.params.address) {
       that.address = Object.assign(
         that.address,
         that.$store.state.home.address
       );
+    } else{
+      that.address = Object.assign(
+        that.address,
+        that.$route.params.address
+      );
     }
-    that.addStatue = this.address.id ? false : true;
+    that.addStatue = this.address.addressId ? false : true;
   },
   methods: {
     ...mapActions(['setShowData']),
@@ -98,7 +103,7 @@ export default {
     },
     deleteAddress() {
       const that = this;
-      this.$API.deleteAddress(this.address.id).then(data => {
+      this.$API.deleteAddress(this.address.addressId).then(data => {
         if (data.data.data.code) {
           that.close();
         } else {

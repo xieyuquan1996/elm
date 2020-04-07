@@ -51,6 +51,9 @@ export default {
     }
   },
   created(){
+    if(!this.$store.state.my.token){
+      return
+    }
     if(!this.userName || this.userName.length < 1){
       const that = this
       this.$API.getUser().then(data =>{

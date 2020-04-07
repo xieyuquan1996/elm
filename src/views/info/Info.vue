@@ -48,11 +48,11 @@
         <span class="text">只看有评论的内容</span>
       </div>
       <div class="rating-wrapper">
-        <div class="rating" v-for="(rating,index) of foodRatings" :key="rating.username + index">
+        <div class="rating" v-for="rating of foodRatings" :key="rating.foodId">
           <div class="info-wrapper">
             <span class="time">{{dateFmt(rating.rateTime)}}</span>
             <span class="avatar">
-              <span class="username">{{rating.username}}</span>
+              <span class="username">{{rating.userName}}</span>
               <img :src="rating.avatar" class="img" />
             </span>
           </div>
@@ -81,7 +81,6 @@ export default {
       datefmt: 'YYYY-mm-dd HH:MM',
       showContent: false,
       isAll: -1,
-      ratingList: [],
       ragingsList: []
     };
   },
@@ -97,7 +96,7 @@ export default {
     foodRatings(){
       let ratings = []
       let that = this
-      this.ratingList.map(item => {
+      this.ragingsList.map(item => {
         if(that.isAll !== -1){
           if(that.isAll !== item.rateType){
             return

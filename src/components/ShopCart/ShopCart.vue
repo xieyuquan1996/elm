@@ -66,10 +66,9 @@ export default {
   methods: {
     pay(){
       if (this.text === '去结算') {
-        if(this.$store.state.home.token){
+        if(this.$store.state.my.token){
           this.$API.validToken().then(data => {
             if(!data.data.data.code){
-              this.$store.token = null;
               deleteLocalStorage('token')
               this.$router.push({path: '/login'})
             } else {

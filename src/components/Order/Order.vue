@@ -61,12 +61,11 @@ export default {
   created() {
     const that = this;
     // 验证是否登录了
-    if (this.$store.state.home.token) {
+    if (this.$store.state.my.token) {
       this.$API
         .validToken()
         .then(data => {
           if (!data.data.data.code) {
-            that.$store.token = null;
             deleteLocalStorage("token");
             that.$router.push({ path: "/login" });
           } else {
