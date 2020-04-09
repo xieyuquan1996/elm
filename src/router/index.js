@@ -7,7 +7,7 @@ Vue.use(VueRouter)
 
 const routes = [{
     path: '/',
-    redirect: '/home'
+    redirect: '/seckillInfo'
 },
 {
     path: '/login',
@@ -65,6 +65,18 @@ const routes = [{
     name: 'address',
     component: () =>
         import('../views/address/Address.vue')
+},
+{
+    path: '/seckill',
+    name: 'seckill',
+    component: () =>
+        import('../views/seckill/SecKill.vue')
+},
+{
+    path: '/seckillInfo',
+    name: 'seckillInfo',
+    component: () =>
+        import('../views/seckill-info/SeckillInfo.vue')
 }
 ]
 
