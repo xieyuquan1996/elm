@@ -1,6 +1,9 @@
 import Vue from 'vue'
 
 const state = {
+  orderFoods: [],
+  seckillId: 0,
+  preRouteName: 'index',
   showData: '',
   city: '北京',
   address: {},
@@ -13,6 +16,15 @@ const state = {
   goods: []
 }
 const mutations = {
+  setOrderFoods(state, val) {
+    state.orderFoods = val
+  },
+  setSeckillId(state, val) {
+    state.seckillId = val
+  },
+  setPreRouteName(state, val) {
+    state.preRouteName = val
+  },
   setShowData(state, val) {
     state.showData = val
   },

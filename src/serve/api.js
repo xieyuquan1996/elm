@@ -187,6 +187,18 @@ function addOrder(val) {
     return instance.post(`/api/order/add`, val)
 }
 
+/**
+ * 秒杀下单
+ * @param {*} val 
+ */
+function addSeckillOrder(val) {
+    let param = new URLSearchParams()
+    for(let key in val){
+        param.append(key, val[key])
+    }
+    return instance.post(`/api/seckill/add`, val)
+}
+
 function removeOrder(val) {
     return instance.get(`/api/order/delete/${val}`)
 }
@@ -209,11 +221,30 @@ function addUser() {
     return instance.post('/api/user/add', data.ratings)
 }
 
+function test(param) {
+    return instance.get('/api/seckill/get', { params: param })
+}
+
 /**
  * 新增商品
  */
 function addGoods(shopId) {
     return instance.post(`/api/goods/add/${shopId}`, data.goods)
+}
+// 获取到所有的秒杀商品列表
+function getAllSeckill(){
+    return instance.get('/api/seckill/all')
+}
+// 根据id获取到秒杀的商品
+function getSeckillByid(id){
+    return instance.get(`/api/seckill/seckillId/${id}`)
+}
+// 秒杀
+function seckill(foodId){
+    const param = {
+        foodId: foodId
+    }
+    return instance.get(`/api/seckill/get`, {params: param})
 }
 
 export default {
@@ -241,5 +272,5 @@ export default {
     getOrder,
     getUser,
     removeOrder,
-    logout
+    logout,test,getAllSeckill,getSeckillByid,seckill,addSeckillOrder
 }

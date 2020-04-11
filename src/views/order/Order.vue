@@ -152,7 +152,7 @@ export default {
       tablewareNum: "",
       showTableware: false,
       showNote: false,
-      routerName: "index",
+      routerName: this.$store.state.home.preRouteName,
       address: this.$store.state.home.address,
       tittle: "提交订单",
       // 商家和选择了的商品应该通过router的params来的，用store不利与拆分
@@ -166,7 +166,7 @@ export default {
       this.seller = this.$store.state.home.seller
     }
     if(!this.$route.params.sellFood){
-      this.sellFood = this.$store.state.home.sellFood[this.$store.state.home.shopId]
+      this.sellFood = this.$store.state.home.orderFoods
     }
     // 确保sellFood不为空
     if(this.sellFood.length<1){
@@ -250,9 +250,11 @@ export default {
         addressId: that.address.addressId,
         shopId: that.seller.shopId
       };
-      that.$API
-        .addOrder(params)
-        .then(data => {
+      let api = that.$API.addOrder
+      if(this.seller.seckill){
+        api = that.$API.addSeckillOrder
+      }
+      api(params).then(data => {
           if (data.data.data) {
             that.setShowData( "下单成功");
             that.$router.push({ path: "/" });

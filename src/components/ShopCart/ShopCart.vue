@@ -17,6 +17,8 @@
 
 <script>
 import {deleteLocalStorage} from '@/serve/localstorage'
+import { createNamespacedHelpers } from 'vuex'
+const { mapMutations } = createNamespacedHelpers('home')
 export default {
   data() {
     return {
@@ -64,6 +66,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['setPreRouteName',"setOrderFoods"]),
     pay(){
       if (this.text === '去结算') {
         if(this.$store.state.my.token){
@@ -72,9 +75,12 @@ export default {
               deleteLocalStorage('token')
               this.$router.push({path: '/login'})
             } else {
+              this.setPreRouteName('index')
+              const orderFoods = this.$store.state.home.sellFood[this.$store.state.home.shopId]
+              this.setOrderFoods(orderFoods);
               this.$router.push({name: 'order', params: {
                 seller: this.$store.state.home.seller,
-                sellFood: this.$store.state.home.sellFood[this.$store.state.home.shopId]
+                sellFood: orderFoods
               }})
             }
           }).catch(err => {

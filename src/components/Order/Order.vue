@@ -94,6 +94,7 @@ export default {
         shopId: item.shopId,
         sellFood: item.foodResults
       });
+      that.setPreRouteName('home')
       that.$router.push({ name: "order" });
     },
     deleteOrder(ordeerId, index) {
@@ -107,7 +108,7 @@ export default {
         }
       })
     },
-    ...mapMutations(["setShopId", "setSeller", "setSellFood"]),
+    ...mapMutations(["setShopId", "setSeller", "setSellFood", 'setPreRouteName']),
     getOrders(that) {
       that.$API.getOrder().then(data => {
         if (data.data.data) {
